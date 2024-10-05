@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _try_interact() -> void:
-	if self._held_prop:
+	if not self._can_talk and self._held_prop:
 		self._drop()
 		return
 
@@ -113,6 +113,9 @@ func _move(delta: float) -> void:
 
 	self.move_and_slide()
 
+	self._horizontal_velocity = Plane(Vector3.UP).project(self.velocity)
+	self._vertical_velocity = self.velocity.project(Vector3.UP)
+
 
 func _get_motion() -> Vector2:
 	if not self._is_player_controlling:
@@ -120,12 +123,12 @@ func _get_motion() -> Vector2:
 	return Input.get_vector("move left", "move right", "move forward", "move backward").normalized()
 
 
-func _drag_held_object(delta: float) -> void:
+func _drag_held_object(_delta: float) -> void:
 	if not self._held_prop:
 		return
-	var position_delta := self._hold_point.global_position - self._held_prop.global_position
 
-	self._held_prop.desired_linear_velocity = position_delta * self.hold_drag_force * delta
+	var position_delta := self._hold_point.global_position - self._held_prop.global_position
+	self._held_prop.desired_linear_velocity = position_delta * self.hold_drag_force
 
 
 func _on_game_state_changed(new_state: Game.State) -> void:
