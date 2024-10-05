@@ -83,13 +83,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _pick() -> void:
-    if not self._ray.is_colliding():
+    if not self._is_player_controlling or not self._ray.is_colliding():
         self._can_talk = false
         self._can_pickup = false
         return
 
     var picked_object := self._ray.get_collider()
     self._can_talk = picked_object is SceneletTrigger
+    if picked_object is SceneletTrigger:
+        self._can_talk = picked_object.has_content()
     self._can_pickup = picked_object is PhysicsProp
 
 

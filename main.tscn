@@ -96,6 +96,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451616, 0)
 
 [node name="basement" parent="." instance=ExtResource("2_mapes")]
 
+[node name="csg_box_3d" type="CSGBox3D" parent="basement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47574, -0.435989, 3.94387)
+use_collision = true
+size = Vector3(2.30176, 2.04016, 4.34131)
+
+[node name="csg_box_3d" type="CSGBox3D" parent="basement/csg_box_3d"]
+transform = Transform3D(1, 0, 0, 0, 0.840567, 0.541708, 0, -0.541708, 0.840567, 0, 0.756453, -2.5)
+operation = 2
+size = Vector3(5, 1, 4)
+
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yvrrh")
 
@@ -111,21 +121,21 @@ size = Vector3(0.412598, 0.638672, 0.422852)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48648, 0)
 radius = 0.274255
 
-[node name="talking_actor" type="Marker3D" parent="csg_box_3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.516433, 0)
-script = ExtResource("3_k5va0")
-character_file = ExtResource("4_kc03s")
-
 [node name="scenelet_trigger" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20988, 4.76837e-07, 3.04912)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("4_qfjhb")
 timeline_file = ExtResource("5_woklq")
-participants = [NodePath("../csg_box_3d/talking_actor")]
+participants = [NodePath("talking_actor")]
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="scenelet_trigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00889, 0.536548, 6.90191)
 shape = SubResource("SphereShape3D_gubmw")
+
+[node name="talking_actor" type="Marker3D" parent="scenelet_trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0712473, 0.570603, 0.282434)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("4_kc03s")
 
 [node name="rigid_body_3d" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.82006)
