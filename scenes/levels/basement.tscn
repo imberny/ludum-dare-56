@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=4 uid="uid://bbu8j4sjdr8cc"]
+
+[ext_resource type="PackedScene" uid="uid://bcwh33flro5ko" path="res://assets/levels/basement.gltf" id="1_balwd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4t1at"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.0819733, 0.619317, 0.0620952, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ld56f"]
+_surfaces = [{
+"aabb": AABB(-50, -1, -50, 100, 2, 100),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQABwAEAAYAAAACAAYABwAFAAQABQAAAAQAAQACAAAABQABAAAAAwAGAAIAAwAHAAYAAQADAAIABQAHAAMABQADAAEA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAAAAAAAAAAAAAAD/////AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_02syu"]
+resource_name = "basement_Cube"
+_surfaces = [{
+"aabb": AABB(-50, -1, -50, 100, 2, 100),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//5//v//f/3//n/+//1//v/8f/3//X/+//58AAP/f/z//n////18AAP8f/z//X///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQATAA0AAQAHABMACQASAAYACQAVABIAFwAOABQAFwARAA4AEAAKAAQAEAAWAAoABQAIAAIABQALAAgADwAAAAwADwADAAAA"),
+"material": SubResource("StandardMaterial3D_4t1at"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA////////AAD///////8AAFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////////7///////////////////1TV//8AAP///7///wAA////v///AAD//1TVAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//////78AAP///////wAA/////1TVAAAAAP///78AAAAA////vwAAAAD//1TV/7//v/9//7+qKqoq/7//vwAA/3+qKqoq//////9//7+qKqoq/////wAA/3+qKqoq/7//v/9//79U1VTV/7//vwAA/39U1VTV//////9//79U1VTV/////wAA/39U1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ld56f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2t8x"]
+size = Vector3(100, 2, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yurx5"]
+resource_name = "table"
+cull_mode = 2
+albedo_color = Color(0.284104, 0.136877, 0.0645454, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1y2x1"]
+_surfaces = [{
+"aabb": AABB(4.41132, -0.0277845, 9.4072, 3.58836, 1.02904, 5.32964),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("CQADAAoACgAIAAkACgALAAgAAwALAAoADQAJAAgADQAIAAsACQAAAAMAAAACAAMACQABAAAAAAABAAIADQABAAkABwADAAIABwALAAMAAQAHAAIADQALAA4AAQAEAAcADgAMAA0AAQANAAUABQANAAwAAQAFAAQABgAHAAQABgAEAAUACwAHAA8ADwAHAAYACwAPAA4ABQAPAAYADgAPAAwABQAMAA8A"),
+"lods": [1.44064, PackedByteArray("CAADAAsACAAAAAMADQAIAAsAAAAHAAMABwALAAMADQALAA8ACwAHAA8ADQAEAAgACAAEAAAABAANAA8AAAAEAAcADwAHAAQA"), 2.46028, PackedByteArray("DQADAAsABwALAAMADQALAAcAAAAHAAMAAAANAAcADQAAAAMA")],
+"name": "table",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("zz4AAP//AAAAAAAAtdUAAAAA//+11QAAzz7/////AAAAAAAASSoAAM8+AAAAAAAAzz7//wAAAAAAAP//SSoAAP//AAC11QAAL8EAAP//AAAvwf////8AAP////+11QAAL8EAAAAAAAD//wAASSoAAP////9JKgAAL8H//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vfk46"]
+resource_name = "basement_Cube_001"
+_surfaces = [{
+"aabb": AABB(4.41132, -0.0277845, 9.4072, 3.58836, 1.02904, 5.32964),
+"attribute_data": PackedByteArray("/1+zD7Mv/z//X////x+zT/9fS/D/X0vw/9+zT/+fS/D/n0vw/5+zD0vQ/z//n////x9LcP9fs8//X7PP/19LsLMv/3//X0uw/59LsEvQ/3//n0uw/99LcP+fs8//n7PP/1+zT/9fs0//X7NP/19LMEtQ/z//X0sw/59LMLOv/z//n0sw/5+zT/+fs0//n7NP/1+zj0tQ/3//X7OP/19LcP9fS3D/X0tw/59LcP+fS3D/n0tw/5+zj7Ov/3//n7OP"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("GwAJAB4AGwAAAAkAKQAjACwAKQAaACMAIQAuACoAIQAVAC4ALgAVABMAFQAhAAoACgAhAB8AFQAKAAYABQAXAAgABQAOABcADwAtABIADwAkAC0AAgAHAAsAAgAEAAcAFAANABEAFAAWAA0AKwAmACgAKwAvACYAIAAZAB0AIAAiABkAAwAQAAwAAwAnABAAEAAnACUAJwADABwAHAADAAEAJwAcABgA"),
+"lods": [1.44064, PackedByteArray("GQAJACIAGQAAAAkAKAAZACIAKAAiAC0ADQAoAC0ALQAWAA0AAgANABYAAgAWAAsAIQAVAC4AFQAhAAoAJwAMABgAGAAMAAEA"), 2.46028, PackedByteArray("KAAJACIAKAAAAAkAKAAiABYAAgAoABYAAgAWAAsAFQAhAAoA")],
+"material": SubResource("StandardMaterial3D_yurx5"),
+"name": "table",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("zz4AAP///7/PPgAA////v88+AAD///zFAAAAALXVD8AAAAAAtdX8xQAAAAC11VTVAAD//7XVVuoAAP//tdX8xQAA//+11VTVzz7//////7/PPv////8s/s8+//////zFAAAAAEkqo8UAAAAASSqq6QAAAABJKlTVzz4AAAAA///PPgAAAAAJwM8+AAAAAKrpzz7//wAA///PPv//AAD//88+//8AAKrpAAD//0kquv0AAP//SSqq6QAA//9JKlTV//8AALXVo8X//wAAtdX8xf//AAC11VTVL8EAAP///78vwQAA//8JwC/BAAD///zFL8H//////78vwf///////y/B//////zF/////7XVuv3/////tdX8xf////+11VTVL8EAAAAA//8vwQAAAAD/vy/BAAAAAKrp//8AAEkqD8D//wAASSqq6f//AABJKlTV/////0kqVur/////SSqq6f////9JKlTVL8H//wAA//8vwf//AAAs/i/B//8AAKrp/////wAA/3//4v/iVglUe//i/+JU1VTVVpVTtf/i/+JU1VTV//////2BAL//4v/ichzluPrK+spU1VTV/7//v84DnYf6yvrK/7//v/9//7/6yvrKO8F4AvrK+spU1VTVchzluP8c/xyqKqoq/////84DnYf/HP8c//////9//7//HP8cO8F4Av8c/xyqKqoq/7//vwAA/38ENQQ1VglUewQ1BDWqKqoqVpVTtQQ1BDWqKqoq/7//v/2BAL8ENQQ1")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1y2x1")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0fgry"]
+points = PackedVector3Array(7.99969, 1.00126, 13.8562, 7.11911, 1.00126, 14.7368, 7.99969, -0.0277845, 13.8562, 7.99969, 1.00126, 10.2873, 7.11911, -0.0277845, 14.7368, 5.29156, 1.00126, 14.7368, 7.99969, -0.0277845, 10.2873, 7.11911, 1.00126, 9.4072, 5.29156, -0.0277845, 14.7368, 4.41132, 1.00126, 13.8562, 7.11911, -0.0277845, 9.4072, 5.29156, 1.00126, 9.4072, 4.41132, -0.0277845, 13.8562, 4.41132, 1.00126, 10.2873, 5.29156, -0.0277845, 9.4072, 4.41132, -0.0277845, 10.2873)
+
+[node name="basement" type="Node3D"]
+
+[node name="basement" parent="." instance=ExtResource("1_balwd")]
+visible = false
+metadata/run = false
+
+[node name="basement_Imported" type="Node3D" parent="."]
+metadata/run = true
+
+[node name="StaticBody3D_floor" type="StaticBody3D" parent="basement_Imported"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="floor" type="MeshInstance3D" parent="basement_Imported/StaticBody3D_floor"]
+mesh = SubResource("ArrayMesh_02syu")
+skeleton = NodePath("")
+metadata/extras = {
+"collision": "box",
+"size_x": "100.0",
+"size_y": "2.0",
+"size_z": "100.0"
+}
+metadata/collision = "box"
+metadata/size_x = "100.0"
+metadata/size_z = "100.0"
+metadata/size_y = "2.0"
+
+[node name="CollisionShape3D_floor" type="CollisionShape3D" parent="basement_Imported/StaticBody3D_floor"]
+shape = SubResource("BoxShape3D_j2t8x")
+
+[node name="StaticBody3D_table" type="StaticBody3D" parent="basement_Imported"]
+
+[node name="table" type="MeshInstance3D" parent="basement_Imported/StaticBody3D_table"]
+mesh = SubResource("ArrayMesh_vfk46")
+skeleton = NodePath("")
+metadata/extras = {
+"collision": "simple"
+}
+metadata/collision = "simple"
+
+[node name="CollisionShape3D_table" type="CollisionShape3D" parent="basement_Imported/StaticBody3D_table"]
+shape = SubResource("ConvexPolygonShape3D_0fgry")

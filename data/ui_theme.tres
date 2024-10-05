@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d3dpxc0131y0n"]
+
+[ext_resource type="FontFile" uid="uid://dla35uwyu5bjm" path="res://assets/fonts/Schoolwork-Regular.ttf" id="1_kh3ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2msd"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_kh3ty")
+Label/styles/normal = SubResource("StyleBoxEmpty_e2msd")

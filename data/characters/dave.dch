@@ -1,0 +1,19 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"color": Color(1, 1, 1, 1),
+&"scale": 1.0,
+&"description": "Joaquim's longtime friend. Not particularly smart. Or funny. Or anything really. But he's a good sport.",
+&"offset": Vector2(0, 0),
+&"mirror": false,
+&"nicknames": [""],
+&"display_name": "Dave",
+&"portraits": {},
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "",
+&"_translation_id": ""
+}

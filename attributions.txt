@@ -1,0 +1,3 @@
+fonts:
+    Schoolwork by Forkssrose https://www.dafont.com/schoolwork.font
+    Comic Helvetic by Alexander Pravdin https://www.dafont.com/comic-helvetic.font?af=on&l[]=10&l[]=1&text=Happy+birthday+Joaquim
