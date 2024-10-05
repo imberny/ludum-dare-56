@@ -1,3 +1,6 @@
 fonts:
     Schoolwork by Forkssrose https://www.dafont.com/schoolwork.font
     Comic Helvetic by Alexander Pravdin https://www.dafont.com/comic-helvetic.font?af=on&l[]=10&l[]=1&text=Happy+birthday+Joaquim
+
+models:
+    "Low Poly Mesh Child Base" (https://skfb.ly/o7XZE) by justice2free is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsgw214l8i5kg"]
+[gd_scene load_steps=16 format=3 uid="uid://bsgw214l8i5kg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_3rg7b"]
 [ext_resource type="PackedScene" uid="uid://bbu8j4sjdr8cc" path="res://scenes/levels/basement.tscn" id="2_mapes"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="4_qfjhb"]
 [ext_resource type="Resource" path="res://data/characters/test.dtl" id="5_woklq"]
 [ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
+[ext_resource type="PackedScene" uid="uid://5fjbx3u7yfyl" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2q7ol"]
 radius = 0.264036
@@ -43,6 +44,7 @@ max_speed = 3.5
 hold_drag_force = 10.58
 
 [node name="camera" type="Camera3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0499091, 0)
 current = true
 
 [node name="interaction_ray" type="RayCast3D" parent="player/camera"]
@@ -86,6 +88,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_xrdut")
 text = "Pick up?"
+
+[node name="upright_pos" type="Marker3D" parent="player"]
+
+[node name="crouched_pos" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451616, 0)
 
 [node name="basement" parent="." instance=ExtResource("2_mapes")]
 
@@ -131,3 +138,6 @@ mesh = SubResource("SphereMesh_qcdww")
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="rigid_body_3d"]
 shape = SubResource("SphereShape3D_8d451")
+
+[node name="joaquim" parent="." instance=ExtResource("9_1rdcu")]
+transform = Transform3D(0.739772, 0, 0.672858, 0, 1, 0, -0.672858, 0, 0.739772, -2.31925, 0, 3.20442)
