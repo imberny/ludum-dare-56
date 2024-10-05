@@ -35,7 +35,7 @@ directories/dtl_directory={
 "test": "res://data/characters/test.dtl"
 }
 layout/style_list=["res://data/dialogic_bubble_style.tres", "res://data/dialogic_default_bubbles.tres", "res://data/dialogic_vn.tres"]
-layout/default_style="res://data/dialogic_vn.tres"
+layout/default_style="res://data/dialogic_bubble_style.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -64,6 +64,7 @@ mouse_cursor/custom_image="res://assets/textures/hand-point-up-solid.png"
 [editor]
 
 naming/node_name_casing=2
+export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 

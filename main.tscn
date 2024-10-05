@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="4_qfjhb"]
 [ext_resource type="Resource" path="res://data/characters/test.dtl" id="5_woklq"]
 [ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
-[ext_resource type="PackedScene" uid="uid://5fjbx3u7yfyl" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
-[ext_resource type="PackedScene" uid="uid://0a0jy4v5ys1y" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
+[ext_resource type="PackedScene" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
+[ext_resource type="PackedScene" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
 
