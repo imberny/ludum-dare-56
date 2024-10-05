@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=8 format=3 uid="uid://dq4xfku0grlab"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=9 format=3 uid="uid://dq4xfku0grlab"]
 
 [ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_2ejam"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_tf273"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_du0le"]
 [ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="4_pfyic"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_acf3q"]
+[ext_resource type="Resource" uid="uid://dao2kv8jkaglf" path="res://scenes/ui/dialogue_choices.tres" id="5_rpiur"]
 
 [sub_resource type="Resource" id="Resource_305e6"]
 script = ExtResource("2_tf273")
@@ -32,5 +33,5 @@ script = ExtResource("5_acf3q")
 name = "dialogic_bubble_style"
 base_scene = ExtResource("1_2ejam")
 base_overrides = {}
-layers = Array[ExtResource("2_tf273")]([SubResource("Resource_305e6"), SubResource("Resource_5l4r0")])
-metadata/_latest_layer = 1
+layers = Array[ExtResource("2_tf273")]([SubResource("Resource_305e6"), SubResource("Resource_5l4r0"), ExtResource("5_rpiur")])
+metadata/_latest_layer = 2

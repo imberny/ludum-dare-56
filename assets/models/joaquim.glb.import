@@ -37,6 +37,10 @@ _subresources={
 "palette": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/materials/actor_palette.material"
+},
+"props_palette": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/props_palette.material"
 }
 }
 }

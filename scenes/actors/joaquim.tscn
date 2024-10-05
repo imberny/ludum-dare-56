@@ -50,6 +50,3 @@ bones/30/rotation = Quaternion(3.788e-07, -0.0325827, -6.63724e-08, 0.999469)
 bones/31/rotation = Quaternion(-0.441796, -0.0329377, 0.00726322, 0.896481)
 bones/32/rotation = Quaternion(-7.98138e-05, 0.97895, -0.204101, -0.000424278)
 bones/32/scale = Vector3(1, 1, 1)
-
-[node name="directional_light_3d" type="DirectionalLight3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.8783, 0.478109, 0, -0.478109, 0.8783, 0, 0, 0)
