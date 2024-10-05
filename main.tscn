@@ -1,20 +1,29 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsgw214l8i5kg"]
+[gd_scene load_steps=29 format=3 uid="uid://bsgw214l8i5kg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_3rg7b"]
+[ext_resource type="Resource" path="res://data/characters/chapter1_happy_birthday.dtl" id="2_hfj0i"]
 [ext_resource type="PackedScene" uid="uid://bbu8j4sjdr8cc" path="res://scenes/levels/basement.tscn" id="2_mapes"]
 [ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="2_xrdut"]
 [ext_resource type="Script" path="res://scenes/actors/talking_actor.gd" id="3_k5va0"]
 [ext_resource type="Resource" path="res://data/characters/joaquim.dch" id="4_kc03s"]
 [ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="4_qfjhb"]
+[ext_resource type="Resource" path="res://data/characters/lilith.dch" id="5_7b6wf"]
 [ext_resource type="Resource" path="res://data/characters/test.dtl" id="5_woklq"]
+[ext_resource type="Resource" path="res://data/characters/dave.dch" id="6_v7k0x"]
+[ext_resource type="Resource" path="res://data/characters/tom.dch" id="7_hlk7x"]
+[ext_resource type="Resource" path="res://data/characters/mickey.dch" id="8_43grt"]
 [ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
-[ext_resource type="PackedScene" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
+[ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
 [ext_resource type="PackedScene" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
+[ext_resource type="Script" path="res://assets/models/props/tv.gd" id="12_8ftgm"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_85lvf"]
+radius = 1.33716
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2q7ol"]
-radius = 0.264036
+radius = 0.225
 height = 1.25223
 
 [sub_resource type="Environment" id="Environment_yvrrh"]
@@ -33,21 +42,56 @@ height = 0.2
 [sub_resource type="SphereShape3D" id="SphereShape3D_8d451"]
 radius = 0.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o7ejc"]
-viewport_path = NodePath("tv_viewport")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_318m4"]
+albedo_color = Color(0.242188, 0.242188, 0.242188, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ca1j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfqnj"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_o7ejc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d2sc6"]
 size = Vector3(2.50525, 3.50085, 2.87384)
 
 [node name="main" type="Node3D"]
 
+[node name="test_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("4_qfjhb")
+timeline_file = ExtResource("2_hfj0i")
+participants = [NodePath("testjo"), NodePath("testlil"), NodePath("testdave"), NodePath("testtom"), NodePath("testmic")]
+
+[node name="testjo" type="Marker3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01569, 1.05632, 12.0117)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("4_kc03s")
+
+[node name="testlil" type="Marker3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34847, 1.05632, 12.463)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("5_7b6wf")
+
+[node name="testdave" type="Marker3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81114, 1.05632, 12.4541)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("6_v7k0x")
+
+[node name="testtom" type="Marker3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89876, 1.05632, 13.5984)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("7_hlk7x")
+
+[node name="testmic" type="Marker3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20301, 1.05632, 13.6448)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("8_43grt")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="test_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88562, 0, 13.1323)
+shape = SubResource("SphereShape3D_85lvf")
+
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.871377, 0, 0.490615, 0, 1, 0, -0.490615, 0, -0.871377, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07247, 1, 15.062)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_3rg7b")
@@ -172,17 +216,18 @@ size = Vector2i(320, 240)
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="tv" parent="." instance=ExtResource("12_yp4lc")]
+[node name="tv" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("12_yp4lc")]
 transform = Transform3D(-0.205088, 0, 0.248182, 0, 0.321955, 0, -0.248182, 0, -0.205088, -1.46386, 0, 4.27367)
+script = ExtResource("12_8ftgm")
+off_material = SubResource("StandardMaterial3D_318m4")
+viewport_material = SubResource("StandardMaterial3D_tfqnj")
+viewport = NodePath("../tv_viewport")
 
-[node name="tv" parent="tv" index="0"]
-surface_material_override/1 = SubResource("StandardMaterial3D_5ca1j")
-
-[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="tv"]
+[node name="sound" type="AudioStreamPlayer3D" parent="tv"]
 transform = Transform3D(-1.08943, 0, 2.9087, 0, 3.10602, 0, -2.9087, 0, -1.08943, 0, 1.78729, 0)
 stream = ExtResource("11_vim10")
-volume_db = -30.014
-autoplay = true
+attenuation_model = 1
+volume_db = -33.0
 bus = &"sfx"
 
 [node name="static_body_3d" type="StaticBody3D" parent="tv"]
@@ -190,5 +235,11 @@ bus = &"sfx"
 [node name="collision_shape_3d" type="CollisionShape3D" parent="tv/static_body_3d"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.154716, 1.25043, -0.0136251)
 shape = SubResource("BoxShape3D_d2sc6")
+
+[node name="omni_light_3d" type="OmniLight3D" parent="tv"]
+transform = Transform3D(3.10602, 0, -1.19209e-07, 0, 3.10602, 0, 1.19209e-07, 0, 3.10602, 0.613025, 1.84343, -0.351657)
+light_color = Color(1, 0.427764, 0.915079, 1)
+shadow_enabled = true
+omni_attenuation = 2.931
 
 [editable path="tv"]

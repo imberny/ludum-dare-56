@@ -22,13 +22,13 @@ noise = SubResource("FastNoiseLite_lsfnp")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60xbe"]
 resource_local_to_scene = true
 shader = ExtResource("2_1mhvf")
+shader_parameter/deformation_sampler = SubResource("NoiseTexture2D_kr7hw")
 shader_parameter/radius = 200.0
 shader_parameter/box_size = Vector2(100, 100)
 shader_parameter/box_padding = 10.0
 shader_parameter/wobble_amount = 0.75
 shader_parameter/wobble_speed = 10.0
 shader_parameter/wobble_detail = 0.51
-shader_parameter/deformation_sampler = SubResource("NoiseTexture2D_kr7hw")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ls0"]
 content_margin_left = 5.0
@@ -79,9 +79,12 @@ offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
+text = "Hello my friends how are you"
 scroll_active = false
 visible_characters_behavior = 1
 script = ExtResource("3_syv35")
+alignment = 1
 textbox_root = NodePath("..")
 
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="DialogText"]

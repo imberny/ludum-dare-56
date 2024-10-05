@@ -19,7 +19,8 @@ script = ExtResource("2_tf273")
 scene = ExtResource("4_pfyic")
 overrides = {
 "bold_font": "\"res://assets/fonts/ComicHelvetic_Heavy.otf\"",
-"box_padding": "Vector2(50, 50)",
+"box_corner_radius": "75.0",
+"box_padding": "Vector2(30, 30)",
 "box_wobble_speed": "5.0",
 "choices_text_font": "\"res://assets/fonts/ComicHelvetic_Heavy.otf\"",
 "choices_text_size": "28.0",
@@ -36,4 +37,4 @@ name = "dialogic_bubble_style"
 base_scene = ExtResource("1_2ejam")
 base_overrides = {}
 layers = Array[ExtResource("2_tf273")]([SubResource("Resource_305e6"), SubResource("Resource_5l4r0"), ExtResource("5_rpiur")])
-metadata/_latest_layer = 0
+metadata/_latest_layer = 1

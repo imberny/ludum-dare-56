@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogicStyleLayer" load_steps=3 format=3 uid="uid://dao2kv8jkaglf"]
 
-[ext_resource type="PackedScene" uid="uid://dhmdt2gc30apl" path="res://scenes/ui/dialogue_choices.tscn" id="1_2lnbj"]
+[ext_resource type="PackedScene" uid="uid://dhmdt2gc30apl" path="res://scenes/ui/dialogue/dialogue_choices.tscn" id="1_2lnbj"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_pftsj"]
 
 [resource]
