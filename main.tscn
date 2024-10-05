@@ -27,6 +27,9 @@ radius = 0.225
 height = 1.25223
 
 [sub_resource type="Environment" id="Environment_yvrrh"]
+background_mode = 1
+background_color = Color(0.440801, 0.745696, 0.863281, 1)
+ambient_light_color = Color(0.219998, 0.798684, 0.804688, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gubmw"]
 radius = 0.213706
@@ -43,9 +46,10 @@ height = 0.2
 radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_318m4"]
-albedo_color = Color(0.242188, 0.242188, 0.242188, 1)
+shading_mode = 0
+albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqj8f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybyny"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -55,6 +59,7 @@ size = Vector3(2.50525, 3.50085, 2.87384)
 [node name="main" type="Node3D"]
 
 [node name="test_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02693, 0.11896, 2.1115)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("4_qfjhb")
@@ -91,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88562, 0, 13.1323)
 shape = SubResource("SphereShape3D_85lvf")
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07247, 1, 15.062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25965, 1.32832, 17.0299)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_3rg7b")
@@ -152,23 +157,11 @@ text = "Pick up?"
 [node name="crouched_pos" type="Marker3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451616, 0)
 
-[node name="basement" parent="." instance=ExtResource("2_mapes")]
-
-[node name="csg_box_3d" type="CSGBox3D" parent="basement"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47574, -0.435989, 3.94387)
-use_collision = true
-size = Vector3(2.30176, 2.04016, 4.34131)
-
-[node name="csg_box_3d" type="CSGBox3D" parent="basement/csg_box_3d"]
-transform = Transform3D(1, 0, 0, 0, 0.840567, 0.541708, 0, -0.541708, 0.840567, 0, 0.756453, -2.5)
-operation = 2
-size = Vector3(5, 1, 4)
-
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yvrrh")
 
 [node name="directional_light_3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.571143, 0.82085, 0, -0.82085, 0.571143, 0, 4, 0)
+transform = Transform3D(0.789148, -2.98023e-08, -0.614202, 0.504168, 0.571143, 0.647773, 0.350798, -0.82085, 0.450717, 0, 12.0171, 5.57826)
 shadow_enabled = true
 
 [node name="csg_box_3d" type="CSGBox3D" parent="."]
@@ -180,7 +173,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48648, 0)
 radius = 0.274255
 
 [node name="scenelet_trigger" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21159, 0.438235, 3.3419)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62178, 0.438235, 6.99648)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("4_qfjhb")
@@ -207,7 +200,7 @@ mesh = SubResource("SphereMesh_qcdww")
 shape = SubResource("SphereShape3D_8d451")
 
 [node name="joaquim" parent="." instance=ExtResource("9_1rdcu")]
-transform = Transform3D(0.739772, 0, 0.672858, 0, 1, 0, -0.672858, 0, 0.739772, -2.31925, 0, 3.20442)
+transform = Transform3D(-0.43997, 0, -0.898013, 0, 1, 0, 0.898013, 0, -0.43997, 2.7474, 2.38419e-07, 7.00831)
 
 [node name="tv_viewport" type="SubViewport" parent="."]
 size = Vector2i(320, 240)
@@ -217,10 +210,10 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="tv" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("12_yp4lc")]
-transform = Transform3D(-0.205088, 0, 0.248182, 0, 0.321955, 0, -0.248182, 0, -0.205088, -1.46386, 0, 4.27367)
+transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_uqj8f")
+viewport_material = SubResource("StandardMaterial3D_ybyny")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
@@ -237,9 +230,12 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.154716
 shape = SubResource("BoxShape3D_d2sc6")
 
 [node name="omni_light_3d" type="OmniLight3D" parent="tv"]
-transform = Transform3D(3.10602, 0, -1.19209e-07, 0, 3.10602, 0, 1.19209e-07, 0, 3.10602, 0.613025, 1.84343, -0.351657)
+transform = Transform3D(1, 0, -3.838e-08, 0, 1, 0, 3.838e-08, 0, 1, 1.82132, 1.84343, 0.00863226)
 light_color = Color(1, 0.427764, 0.915079, 1)
+light_energy = 5.083
 shadow_enabled = true
-omni_attenuation = 2.931
+omni_attenuation = 0.862
+
+[node name="basement" parent="." instance=ExtResource("2_mapes")]
 
 [editable path="tv"]
