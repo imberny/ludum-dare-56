@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0a0jy4v5ys1y"]
 
-[ext_resource type="VideoStream" path="res://assets/video/momo.ogv" id="1_a3oha"]
+[ext_resource type="VideoStream" path="res://assets/video/momo_lores.ogv" id="1_txct6"]
 [ext_resource type="Shader" path="res://scenes/tv_screen.gdshader" id="2_huepk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnn5o"]
@@ -27,7 +27,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_a5qna"]
 gradient = SubResource("Gradient_eu4t3")
 
-[node name="Control" type="Control"]
+[node name="retro_game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,14 +42,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -56.0
+offset_left = -40.0
 offset_top = 1.0
-offset_right = 1608.0
-offset_bottom = 849.0
+offset_right = -40.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.22, 0.22)
-stream = ExtResource("1_a3oha")
+scale = Vector2(1.245, 1.245)
+stream = ExtResource("1_txct6")
 autoplay = true
 loop = true
 bus = &"sfx"

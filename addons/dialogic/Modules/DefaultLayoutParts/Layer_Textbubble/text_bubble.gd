@@ -32,7 +32,7 @@ var bg_padding := 30
 
 func _ready() -> void:
     reset()
-    # DialogicUtil.autoload().Choices.question_shown.connect(_on_question_shown)
+    DialogicUtil.autoload().Choices.question_shown.connect(_on_question_shown)
 
 
 func reset() -> void:

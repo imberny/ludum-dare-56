@@ -15,13 +15,9 @@ var mouse_sensitivity := 0.002
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	self.state_changed.connect(self._on_state_changed)
 	Dialogic.timeline_started.connect(self._on_dialogic_timeline_started)
 	Dialogic.timeline_ended.connect(self._on_dialogic_timeline_ended)
-
-	await self.get_tree().process_frame
-	self.state = State.PLAYING
 
 
 func _unhandled_input(event: InputEvent) -> void:
