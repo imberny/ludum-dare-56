@@ -4,3 +4,11 @@ fonts:
 
 models:
     "Low Poly Mesh Child Base" (https://skfb.ly/o7XZE) by justice2free is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+sfx:
+    Parents Arguing Sound Effect by Charloft Dockingments https://www.youtube.com/watch?v=8qMSBKKoaMg
+    Couple Arguing Sound Effect by JakubK 2023 https://www.youtube.com/watch?v=c0olR8GK6os
+    Breaking Plates.wav by Juan_Merie_Venter -- https://freesound.org/s/327668/ -- License: Attribution NonCommercial 3.0
+    Angry Door - Wooden Entrance Open Close Slam Hard B.wav by hisoul -- https://freesound.org/s/462664/ -- License: Creative Commons 0
+    Angry knocking by Speedenza -- https://freesound.org/s/222991/ -- License: Attribution NonCommercial 4.0
+    tableware_crash1.mp3 by Taira Komori -- https://freesound.org/s/212638/ -- License: Attribution 4.0

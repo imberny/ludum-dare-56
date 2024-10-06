@@ -28,6 +28,7 @@ directories/dch_directory={
 "lilith": "res://data/characters/lilith.dch",
 "me": "res://data/characters/me.dch",
 "mickey": "res://data/characters/mickey.dch",
+"parents": "res://data/characters/parents.dch",
 "tom": "res://data/characters/tom.dch"
 }
 directories/dtl_directory={
