@@ -35,6 +35,8 @@ overrides = {
 script = ExtResource("5_acf3q")
 name = "dialogic_bubble_style"
 base_scene = ExtResource("1_2ejam")
-base_overrides = {}
+base_overrides = {
+"bubble_count": "3.0"
+}
 layers = Array[ExtResource("2_tf273")]([SubResource("Resource_305e6"), SubResource("Resource_5l4r0"), ExtResource("5_rpiur")])
-metadata/_latest_layer = 1
+metadata/_latest_layer = -1

@@ -6,7 +6,7 @@ uniform vec3 emission_ambient_tweak: source_color = vec3(0.1, 0.2, 0.3);
 
 group_uniforms Rim;
 uniform vec3 rim_color: source_color = vec3(0.0);
-uniform float rim_threshold: hint_range(0.0, 1.0, 0.02) = 0.5;
+uniform float rim_threshold: hint_range(-1.0, 1.0, 0.02) = 0.5;
 group_uniforms;
 
 group_uniforms Lighting;
@@ -19,7 +19,7 @@ float when_gt(float x, float y) {
 }
 
 void fragment() {
-        vec4 albedo_color = texture(albedo, UV);
+    vec4 albedo_color = texture(albedo, UV);
 
     float n_dot_v = dot(NORMAL, VIEW);
     float rim_factor = when_gt(rim_threshold, n_dot_v);

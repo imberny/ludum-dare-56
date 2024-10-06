@@ -19,13 +19,14 @@ func turn_on() -> void:
 	$sound.play()
 	$tv.set_surface_override_material(1, viewport_material)
 	$omni_light_3d.light_energy = self.light_energy
+	$omni_light_3d.visible = true
 
 
 func turn_off() -> void:
 	self._is_on = false
 	$sound.stop()
 	$tv.set_surface_override_material(1, off_material)
-	$omni_light_3d.light_energy = 0.0
+	$omni_light_3d.visible = false
 
 
 func _input(event: InputEvent) -> void:

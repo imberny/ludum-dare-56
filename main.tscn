@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://bsgw214l8i5kg"]
+[gd_scene load_steps=32 format=3 uid="uid://bsgw214l8i5kg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_3rg7b"]
 [ext_resource type="Resource" path="res://data/characters/chapter1_happy_birthday.dtl" id="2_hfj0i"]
 [ext_resource type="PackedScene" uid="uid://bbu8j4sjdr8cc" path="res://scenes/levels/basement.tscn" id="2_mapes"]
 [ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="2_xrdut"]
 [ext_resource type="Script" path="res://scenes/actors/talking_actor.gd" id="3_k5va0"]
+[ext_resource type="PackedScene" uid="uid://cb7jrubolnubw" path="res://assets/models/joaquim.glb" id="3_wd61k"]
 [ext_resource type="Resource" path="res://data/characters/joaquim.dch" id="4_kc03s"]
 [ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="4_qfjhb"]
 [ext_resource type="Resource" path="res://data/characters/lilith.dch" id="5_7b6wf"]
@@ -14,7 +15,9 @@
 [ext_resource type="Resource" path="res://data/characters/mickey.dch" id="8_43grt"]
 [ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
 [ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
+[ext_resource type="PackedScene" uid="uid://luq58vq5fk6x" path="res://assets/models/lilith.glb" id="9_7jex3"]
 [ext_resource type="PackedScene" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
+[ext_resource type="PackedScene" uid="uid://nfnvw1kaynhk" path="res://assets/models/tom.glb" id="11_ehk4y"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
 [ext_resource type="Script" path="res://assets/models/props/tv.gd" id="12_8ftgm"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
@@ -49,7 +52,7 @@ radius = 0.1
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybyny"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st3c3"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -58,45 +61,197 @@ size = Vector3(2.50525, 3.50085, 2.87384)
 
 [node name="main" type="Node3D"]
 
-[node name="test_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02693, 0.11896, 2.1115)
+[node name="scenelet_birthday" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 14.6157)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("4_qfjhb")
 timeline_file = ExtResource("2_hfj0i")
-participants = [NodePath("testjo"), NodePath("testlil"), NodePath("testdave"), NodePath("testtom"), NodePath("testmic")]
+participants = [NodePath("joaquim/talk_joaquim"), NodePath("lilith/talk_lilith"), NodePath("talk_dave"), NodePath("tom/talk_tom"), NodePath("talk_mic")]
 
-[node name="testjo" type="Marker3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01569, 1.05632, 12.0117)
+[node name="joaquim" parent="scenelet_birthday" instance=ExtResource("3_wd61k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311007, -0.253094, -0.646564)
+
+[node name="blanket" parent="scenelet_birthday/joaquim" index="0"]
+visible = false
+
+[node name="controller" parent="scenelet_birthday/joaquim" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="scenelet_birthday/joaquim/rig" index="0"]
+bones/0/position = Vector3(2.66454e-15, 0.542406, -0.0339891)
+bones/0/rotation = Quaternion(0.12582, 1.18262e-07, 1.49989e-08, 0.992053)
+bones/1/rotation = Quaternion(-0.0644763, -3.12067e-14, -1.53724e-08, 0.997919)
+bones/2/rotation = Quaternion(0.00211216, -2.37721e-07, 1.46372e-12, 0.999998)
+bones/3/rotation = Quaternion(0.0811917, 1.18121e-07, -9.62221e-09, 0.996699)
+bones/4/rotation = Quaternion(0.123164, 3.17637e-21, -3.99694e-21, 0.992386)
+bones/5/rotation = Quaternion(0.0756701, 2.37735e-07, 1.80412e-08, 0.997133)
+bones/6/rotation = Quaternion(-0.287195, -1.14187e-07, -1.02709e-07, 0.957872)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.151223, 0.451686, -0.79665, 0.372104)
+bones/9/rotation = Quaternion(6.01928e-08, 0.0346098, 2.30459e-08, 0.999401)
+bones/10/rotation = Quaternion(0.227842, 0.0346102, -0.00810388, 0.973049)
+bones/11/rotation = Quaternion(1.89473e-07, 0.148427, -7.42474e-09, 0.988923)
+bones/12/rotation = Quaternion(-0.0303879, 0.148465, 0.186213, 0.970752)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0.116356, 0.39322, -0.828671, -0.380976)
+bones/15/rotation = Quaternion(-1.40765e-07, -0.0517856, -2.98726e-08, 0.998658)
+bones/16/rotation = Quaternion(0.117498, -0.051786, 0.00613547, 0.991703)
+bones/17/rotation = Quaternion(-2.68524e-07, 0.0555579, -3.55833e-09, 0.998455)
+bones/18/rotation = Quaternion(-0.00672894, 0.0555186, -0.189243, 0.980336)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
+bones/20/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.668617, 0.0276053, -0.00457975, 0.74308)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(1.94901e-07, 0.0112855, 1.52638e-09, 0.999936)
+bones/23/rotation = Quaternion(0.776613, 0.0112855, -0.013918, 0.629723)
+bones/24/rotation = Quaternion(-7.95125e-08, 0.00509011, 1.83559e-08, 0.999987)
+bones/25/rotation = Quaternion(-0.441878, 0.00473367, 0.0485397, 0.895749)
+bones/26/rotation = Quaternion(-8.1199e-05, 0.978954, -0.20408, -0.000423776)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.669141, -0.0339551, 0.00563341, 0.742338)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(1.12009e-07, -0.0138308, -1.36871e-08, 0.999904)
+bones/29/rotation = Quaternion(0.775316, -0.0138307, 0.0169888, 0.631193)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(3.1899e-08, -0.00623676, 2.17466e-08, 0.999981)
+bones/31/rotation = Quaternion(-0.441085, -0.00659861, -0.0591187, 0.895492)
+bones/32/rotation = Quaternion(-9.64651e-05, 0.978954, -0.20408, -0.000420912)
+bones/32/scale = Vector3(1, 1, 1)
+
+[node name="talk_joaquim" type="Marker3D" parent="scenelet_birthday/joaquim"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00653005, 1.07788, 0.138276)
 script = ExtResource("3_k5va0")
 character_file = ExtResource("4_kc03s")
 
-[node name="testlil" type="Marker3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34847, 1.05632, 12.463)
+[node name="lilith" parent="scenelet_birthday" instance=ExtResource("9_7jex3")]
+transform = Transform3D(0.714802, 0, 0.699327, 0, 1, 0, -0.699327, 0, 0.714802, -0.370086, -0.206611, -0.292138)
+
+[node name="Skeleton3D" parent="scenelet_birthday/lilith/rig" index="0"]
+bones/0/position = Vector3(-0.0156127, 0.507128, -0.0322274)
+bones/0/rotation = Quaternion(0.121324, 0.262833, -0.0333344, 0.956603)
+bones/1/rotation = Quaternion(-0.0666436, 0.00105029, 0.0162559, 0.997644)
+bones/2/rotation = Quaternion(-0.0767875, -0.143204, -0.0101228, 0.986658)
+bones/3/rotation = Quaternion(0.00157966, 0.100792, 0.00339229, 0.9949)
+bones/4/rotation = Quaternion(0.200473, -0.110096, 0.0194169, 0.9733)
+bones/5/rotation = Quaternion(-0.094835, 0.0217142, -0.00206832, 0.995254)
+bones/6/rotation = Quaternion(-0.113756, -0.0659775, 0.120446, 0.983971)
+bones/8/rotation = Quaternion(-0.228879, 0.462635, -0.753008, 0.408121)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(1.89172e-07, 0.0156909, -4.1527e-08, 0.999877)
+bones/10/rotation = Quaternion(0.616107, 0.0156918, -0.0122781, 0.78741)
+bones/11/rotation = Quaternion(2.49153e-07, 0.284176, 3.04818e-07, 0.958772)
+bones/12/rotation = Quaternion(0.133792, 0.284917, -0.107252, 0.94309)
+bones/13/rotation = Quaternion(-0.605155, 0.345862, 0.356134, 0.622363)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.195017, 0.637181, -0.603513, -0.437883)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(1.11066e-07, 0.0566517, 3.10051e-08, 0.998394)
+bones/16/rotation = Quaternion(0.591609, 0.0566518, -0.0417306, 0.803149)
+bones/17/rotation = Quaternion(-3.13525e-08, -0.269507, 3.85059e-07, 0.962998)
+bones/18/rotation = Quaternion(-0.00983466, -0.269772, 0.385514, 0.88233)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.565815, -0.0209656, 0.00230299, 0.824262)
+bones/21/scale = Vector3(1, 1, 0.999994)
+bones/22/rotation = Quaternion(2.56546e-07, -0.016821, 1.79265e-09, 0.999858)
+bones/23/rotation = Quaternion(0.909248, -0.0166945, 0.0366391, 0.414302)
+bones/24/rotation = Quaternion(-1.89809e-07, 0.167054, -3.11162e-09, 0.985948)
+bones/25/rotation = Quaternion(-0.349325, 0.166596, -0.158348, 0.908374)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-2.09475e-05, 0.997646, -0.0685754, -0.000585144)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.627764, 0.0915219, -0.0106974, 0.772931)
+bones/27/scale = Vector3(1, 1, 0.999994)
+bones/28/rotation = Quaternion(-1.51336e-07, 0.0432835, 4.21087e-09, 0.999063)
+bones/29/rotation = Quaternion(0.801899, 0.0434256, -0.058726, 0.592979)
+bones/30/rotation = Quaternion(8.78874e-08, -0.254581, 2.21347e-08, 0.967051)
+bones/31/rotation = Quaternion(-0.643953, -0.254187, 0.100639, 0.714552)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/rotation = Quaternion(3.34851e-05, 0.997656, -0.0684268, 0.00058426)
+bones/32/scale = Vector3(1, 1, 1)
+
+[node name="talk_lilith" type="Marker3D" parent="scenelet_birthday/lilith"]
+transform = Transform3D(0.714802, 0, -0.699327, 0, 1, 0, 0.699327, 0, 0.714802, 0.0527705, 1.12663, 0.159843)
 script = ExtResource("3_k5va0")
 character_file = ExtResource("5_7b6wf")
 
-[node name="testdave" type="Marker3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81114, 1.05632, 12.4541)
+[node name="talk_dave" type="Marker3D" parent="scenelet_birthday"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06962, 0.745951, -0.285137)
 script = ExtResource("3_k5va0")
 character_file = ExtResource("6_v7k0x")
 
-[node name="testtom" type="Marker3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89876, 1.05632, 13.5984)
-script = ExtResource("3_k5va0")
-character_file = ExtResource("7_hlk7x")
-
-[node name="testmic" type="Marker3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20301, 1.05632, 13.6448)
+[node name="talk_mic" type="Marker3D" parent="scenelet_birthday"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40453, 0.713604, 0.455392)
 script = ExtResource("3_k5va0")
 character_file = ExtResource("8_43grt")
 
-[node name="collision_shape_3d" type="CollisionShape3D" parent="test_scenelet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88562, 0, 13.1323)
+[node name="collision_shape_3d" type="CollisionShape3D" parent="scenelet_birthday"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470616, 0.332539)
 shape = SubResource("SphereShape3D_85lvf")
 
+[node name="tom" parent="scenelet_birthday" instance=ExtResource("11_ehk4y")]
+transform = Transform3D(-0.0500874, 0, 0.998745, 0, 1, 0, -0.998745, 0, -0.0500874, -0.551734, -0.182954, 0.772956)
+
+[node name="Skeleton3D" parent="scenelet_birthday/tom/rig" index="0"]
+bones/0/position = Vector3(0.000442295, 0.468044, -0.0460165)
+bones/0/rotation = Quaternion(0.261404, 0.00971518, 0.00751286, 0.965151)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.0769869, 0.0720146, -0.0432438, 0.993487)
+bones/3/rotation = Quaternion(0.00178897, 0.223579, -0.0378991, 0.973947)
+bones/4/rotation = Quaternion(0.196355, -0.138971, 0.067321, 0.968297)
+bones/5/rotation = Quaternion(-0.0935981, 0.161666, -0.0154046, 0.982276)
+bones/6/rotation = Quaternion(-0.0773402, 0.00218921, -0.0771062, 0.994016)
+bones/8/rotation = Quaternion(0.286577, 0.695121, -0.658479, 0.0329582)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(6.20733e-07, -0.00206569, -7.99031e-08, 0.999998)
+bones/10/rotation = Quaternion(0.00313945, -0.00207033, 6.67558e-06, 0.999993)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(1.97819e-07, 0.139328, -9.49791e-08, 0.990246)
+bones/12/rotation = Quaternion(0.0978016, 0.138989, 0.00412739, 0.985444)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.543429, 0.510555, -0.612713, -0.261921)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-2.26465e-10, 0.261052, 4.29006e-08, 0.965325)
+bones/16/rotation = Quaternion(0.735264, 0.261052, -0.397325, 0.483085)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(1.48731e-09, 0.0789151, 3.10971e-08, 0.996881)
+bones/18/rotation = Quaternion(0.627711, 0.0791989, 0.409004, 0.657589)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.810708, -0.00824255, 0.00136751, 0.585391)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(9.06741e-08, -0.00185644, -5.19577e-09, 0.999998)
+bones/23/rotation = Quaternion(0.654074, -0.00185643, 0.00160524, 0.756426)
+bones/24/rotation = Quaternion(-4.68478e-08, 0.00534612, 6.39221e-09, 0.999986)
+bones/25/rotation = Quaternion(-0.803491, 0.00534643, -0.00346656, 0.595283)
+bones/26/rotation = Quaternion(-1.24644e-07, 0.979221, -0.202795, 3.73317e-07)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.720527, -0.0114641, 0.00190201, 0.69333)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(5.50182e-08, -0.00181545, -7.43175e-10, 0.999998)
+bones/29/rotation = Quaternion(0.390914, -0.00181544, 0.000771036, 0.920425)
+bones/30/rotation = Quaternion(8.29938e-08, 0.00362997, -7.98302e-10, 0.999993)
+bones/31/rotation = Quaternion(-0.800907, 0.00362963, -0.000224419, 0.598778)
+bones/32/rotation = Quaternion(-2.43395e-07, 0.979237, -0.202718, -2.9393e-07)
+bones/32/scale = Vector3(1, 1, 1)
+
+[node name="talk_tom" type="Marker3D" parent="scenelet_birthday/tom"]
+transform = Transform3D(-0.0500874, 0, -0.998745, 0, 1, 0, 0.998745, 0, -0.0500874, 0.0853394, 0.893768, 0.287478)
+script = ExtResource("3_k5va0")
+character_file = ExtResource("7_hlk7x")
+
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25965, 1.32832, 17.0299)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25965, 1.32832, 16.6633)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("2_3rg7b")
@@ -162,6 +317,7 @@ environment = SubResource("Environment_yvrrh")
 
 [node name="directional_light_3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.789148, -2.98023e-08, -0.614202, 0.504168, 0.571143, 0.647773, 0.350798, -0.82085, 0.450717, 0, 12.0171, 5.57826)
+light_energy = 0.779
 shadow_enabled = true
 
 [node name="csg_box_3d" type="CSGBox3D" parent="."]
@@ -213,7 +369,7 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_ybyny")
+viewport_material = SubResource("StandardMaterial3D_st3c3")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
@@ -230,12 +386,15 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.154716
 shape = SubResource("BoxShape3D_d2sc6")
 
 [node name="omni_light_3d" type="OmniLight3D" parent="tv"]
-transform = Transform3D(1, 0, -3.838e-08, 0, 1, 0, 3.838e-08, 0, 1, 1.82132, 1.84343, 0.00863226)
-light_color = Color(1, 0.427764, 0.915079, 1)
-light_energy = 5.083
+transform = Transform3D(1, 0, -3.838e-08, 0, 1, 0, 3.838e-08, 0, 1, 1.29021, 1.84343, 0.142409)
+light_energy = 1.662
 shadow_enabled = true
-omni_attenuation = 0.862
+omni_range = 33.197
+omni_attenuation = 0.2
 
 [node name="basement" parent="." instance=ExtResource("2_mapes")]
 
+[editable path="scenelet_birthday/joaquim"]
+[editable path="scenelet_birthday/lilith"]
+[editable path="scenelet_birthday/tom"]
 [editable path="tv"]
