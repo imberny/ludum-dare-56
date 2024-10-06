@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
 [ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
 [ext_resource type="PackedScene" uid="uid://ce3tbwh3wfxba" path="res://scenes/actors/mickey.tscn" id="9_px4l2"]
-[ext_resource type="PackedScene" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
+[ext_resource type="PackedScene" uid="uid://ca257y0ga2whr" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
 [ext_resource type="Script" path="res://assets/models/props/tv.gd" id="12_8ftgm"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
@@ -47,7 +47,7 @@ radius = 0.1
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1u8d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eeq87"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -232,7 +232,7 @@ shape = SubResource("SphereShape3D_8d451")
 [node name="tv_viewport" type="SubViewport" parent="."]
 size = Vector2i(320, 240)
 
-[node name="Control" parent="tv_viewport" instance=ExtResource("10_yxiqj")]
+[node name="retro_game" parent="tv_viewport" instance=ExtResource("10_yxiqj")]
 offset_right = 0.0
 offset_bottom = 0.0
 
@@ -240,7 +240,7 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_e1u8d")
+viewport_material = SubResource("StandardMaterial3D_eeq87")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
