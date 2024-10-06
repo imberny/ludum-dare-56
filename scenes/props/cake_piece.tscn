@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://f6wob3ikfa4n"]
+
+[ext_resource type="PackedScene" uid="uid://cpg8xbcgs5kmd" path="res://assets/models/props/cake_piece.glb" id="1_vsuqb"]
+
+[node name="cake_piece" instance=ExtResource("1_vsuqb")]

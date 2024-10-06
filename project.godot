@@ -37,6 +37,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "chapter1_happy_birthday": "res://data/characters/chapter1_happy_birthday.dtl",
+"chapter2_argument_starts": "res://data/characters/chapter2_argument_starts.dtl",
 "test": "res://data/characters/test.dtl"
 }
 layout/style_list=["res://data/dialogic_bubble_style.tres", "res://data/dialogic_default_bubbles.tres", "res://data/dialogic_vn.tres"]
@@ -61,6 +62,9 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 choices/hotkey_behaviour=0
 text/autopauses={}
+variables={
+"has_cake": false
+}
 
 [display]
 

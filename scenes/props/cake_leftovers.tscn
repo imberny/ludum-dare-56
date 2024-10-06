@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjglxjae53yhy"]
+
+[ext_resource type="PackedScene" uid="uid://dilpq4glyhvtp" path="res://assets/models/props/cake_leftovers.glb" id="1_ytt81"]
+
+[node name="cake_leftovers" instance=ExtResource("1_ytt81")]

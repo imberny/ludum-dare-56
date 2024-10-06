@@ -1,0 +1,194 @@
+[gd_scene load_steps=24 format=3 uid="uid://d14liay6aujk5"]
+
+[ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="1_dfdhp"]
+[ext_resource type="Resource" path="res://data/characters/chapter2_argument_starts.dtl" id="2_dhfhv"]
+[ext_resource type="PackedScene" uid="uid://3gf5odwhm0lb" path="res://scenes/levels/scenelet_chapter_3.tscn" id="3_hyobo"]
+[ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="3_it7lv"]
+[ext_resource type="PackedScene" uid="uid://bja3q26jutghx" path="res://scenes/actors/lilith.tscn" id="4_u1wcd"]
+[ext_resource type="PackedScene" uid="uid://gpq5v5lkhhob" path="res://scenes/actors/tom.tscn" id="5_v50wv"]
+[ext_resource type="PackedScene" uid="uid://txpi01erx1mq" path="res://scenes/actors/dave.tscn" id="6_ht8mx"]
+[ext_resource type="PackedScene" uid="uid://ce3tbwh3wfxba" path="res://scenes/actors/mickey.tscn" id="7_8yejt"]
+[ext_resource type="Script" path="res://scenes/actors/actor.gd" id="8_0d01p"]
+[ext_resource type="Resource" path="res://data/characters/parents.dch" id="9_vkpw6"]
+[ext_resource type="AudioStream" uid="uid://bqdn7k0tdmnfq" path="res://assets/sfx/parents-arguing-man-lookatme.wav" id="10_nkxw2"]
+[ext_resource type="AudioStream" uid="uid://dndyforoiy05h" path="res://assets/sfx/couple-arguing-woman-waytogo.wav" id="11_72swx"]
+[ext_resource type="Script" path="res://scenes/actors/audio_stream_looper.gd" id="12_vwwjq"]
+[ext_resource type="AudioStream" uid="uid://cfyybbrnhisef" path="res://assets/sfx/212638__taira-komori__tableware_crash1.mp3" id="13_mhhm6"]
+[ext_resource type="AudioStream" uid="uid://sllss45yo40s" path="res://assets/sfx/222991__speedenza__angry-knocking.wav" id="14_c0e32"]
+[ext_resource type="AudioStream" uid="uid://bb4sii8qmsp8e" path="res://assets/sfx/327668__juan_merie_venter__breaking-plates_1.wav" id="15_q68gw"]
+[ext_resource type="AudioStream" uid="uid://ds46nmeh1o5jt" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_1.wav" id="16_o5grj"]
+[ext_resource type="AudioStream" uid="uid://cdaiatvtyixsy" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_2.wav" id="17_4clg6"]
+[ext_resource type="PackedScene" uid="uid://cjglxjae53yhy" path="res://scenes/props/cake_leftovers.tscn" id="18_jbq78"]
+[ext_resource type="PackedScene" uid="uid://f6wob3ikfa4n" path="res://scenes/props/cake_piece.tscn" id="19_r7h2m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_85lvf"]
+radius = 1.33716
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
+streams_count = 2
+stream_0/stream = ExtResource("10_nkxw2")
+stream_1/stream = ExtResource("11_72swx")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pbjjm"]
+streams_count = 5
+stream_0/stream = ExtResource("13_mhhm6")
+stream_1/stream = ExtResource("14_c0e32")
+stream_2/stream = ExtResource("15_q68gw")
+stream_3/stream = ExtResource("16_o5grj")
+stream_4/stream = ExtResource("17_4clg6")
+
+[node name="scenelet_chapter2" type="Area3D" node_paths=PackedStringArray("participants")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 15.1179)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_dfdhp")
+timeline_file = ExtResource("2_dhfhv")
+participants = [NodePath("joaquim"), NodePath("lilith"), NodePath("tom"), NodePath("dave"), NodePath("mickey"), NodePath("parents")]
+next_scenelet = ExtResource("3_hyobo")
+autoplay = true
+is_oneshot = true
+switch_on_finished = true
+use_fade_to_black = true
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470616, 0.332539)
+shape = SubResource("SphereShape3D_85lvf")
+
+[node name="joaquim" parent="." instance=ExtResource("3_it7lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366136, -0.192811, -0.611461)
+animation = "sitting"
+
+[node name="lilith" parent="." instance=ExtResource("4_u1wcd")]
+transform = Transform3D(0.848122, 0, 0.529801, 0, 1, 0, -0.529801, 0, 0.848122, -0.419602, -0.245234, -0.31176)
+animation = ""
+
+[node name="Skeleton3D" parent="lilith/rig" index="0"]
+bones/0/position = Vector3(-0.0156127, 0.507128, -0.0322274)
+bones/0/rotation = Quaternion(0.121324, 0.262833, -0.0333344, 0.956603)
+bones/1/rotation = Quaternion(-0.0666436, 0.00105029, 0.0162559, 0.997644)
+bones/2/rotation = Quaternion(-0.0767875, -0.143204, -0.0101228, 0.986658)
+bones/3/rotation = Quaternion(0.00157966, 0.100792, 0.00339229, 0.9949)
+bones/4/rotation = Quaternion(0.200473, -0.110096, 0.0194169, 0.9733)
+bones/5/rotation = Quaternion(-0.094835, 0.0217142, -0.00206832, 0.995254)
+bones/6/rotation = Quaternion(-0.113756, -0.0659775, 0.120446, 0.983971)
+bones/8/rotation = Quaternion(-0.228879, 0.462635, -0.753008, 0.408121)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(1.89172e-07, 0.0156909, -4.1527e-08, 0.999877)
+bones/10/rotation = Quaternion(0.616107, 0.0156918, -0.0122781, 0.78741)
+bones/11/rotation = Quaternion(2.49153e-07, 0.284176, 3.04818e-07, 0.958772)
+bones/12/rotation = Quaternion(0.133792, 0.284917, -0.107252, 0.94309)
+bones/13/rotation = Quaternion(-0.605155, 0.345862, 0.356134, 0.622363)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.195017, 0.637181, -0.603513, -0.437883)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(1.11066e-07, 0.0566517, 3.10051e-08, 0.998394)
+bones/16/rotation = Quaternion(0.591609, 0.0566518, -0.0417306, 0.803149)
+bones/17/rotation = Quaternion(-3.13525e-08, -0.269507, 3.85059e-07, 0.962998)
+bones/18/rotation = Quaternion(-0.00983466, -0.269772, 0.385514, 0.88233)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.565815, -0.0209656, 0.00230299, 0.824262)
+bones/21/scale = Vector3(1, 1, 0.999994)
+bones/22/rotation = Quaternion(2.56546e-07, -0.016821, 1.79265e-09, 0.999858)
+bones/23/rotation = Quaternion(0.909248, -0.0166945, 0.0366391, 0.414302)
+bones/24/rotation = Quaternion(-1.89809e-07, 0.167054, -3.11162e-09, 0.985948)
+bones/25/rotation = Quaternion(-0.349325, 0.166596, -0.158348, 0.908374)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-2.09475e-05, 0.997646, -0.0685754, -0.000585144)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.627764, 0.0915219, -0.0106974, 0.772931)
+bones/27/scale = Vector3(1, 1, 0.999994)
+bones/28/rotation = Quaternion(-1.51336e-07, 0.0432835, 4.21087e-09, 0.999063)
+bones/29/rotation = Quaternion(0.801899, 0.0434256, -0.058726, 0.592979)
+bones/30/rotation = Quaternion(8.78874e-08, -0.254581, 2.21347e-08, 0.967051)
+bones/31/rotation = Quaternion(-0.643953, -0.254187, 0.100639, 0.714552)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/rotation = Quaternion(3.34851e-05, 0.997656, -0.0684268, 0.00058426)
+bones/32/scale = Vector3(1, 1, 1)
+
+[node name="head" parent="lilith/rig/Skeleton3D" index="1"]
+transform = Transform3D(0.965317, -0.23745, 0.108543, 0.236351, 0.971394, 0.0230666, -0.110915, 0.00338772, 0.993824, 0.00288869, 1.01175, 0.0160127)
+
+[node name="mouth" parent="lilith/rig/Skeleton3D/head" index="0"]
+transform = Transform3D(1, -3.72529e-08, -2.98023e-08, 5.21541e-08, 1, -2.23517e-08, 0, -7.45058e-09, 1, 0.140365, -0.0192728, 0.156227)
+
+[node name="torso" parent="lilith/rig/Skeleton3D" index="2"]
+transform = Transform3D(0.859616, 0.127551, 0.494765, 6.70552e-08, 0.968339, -0.24964, -0.510941, 0.214594, 0.832399, -0.0156127, 0.507128, -0.0322274)
+
+[node name="tom" parent="." instance=ExtResource("5_v50wv")]
+transform = Transform3D(0.508951, 0, 0.860795, 0, 1, 0, -0.860795, 0, 0.508951, -0.444957, -0.156663, 0.729715)
+animation = ""
+
+[node name="dave" parent="." instance=ExtResource("6_ht8mx")]
+transform = Transform3D(0.628968, 0, -0.777431, 0, 1, 0, 0.777431, 0, 0.628968, 0.989108, -0.124777, -0.249604)
+animation = ""
+
+[node name="mickey" parent="." instance=ExtResource("7_8yejt")]
+transform = Transform3D(0.0522314, 0, -0.998635, 0, 1, 0, 0.998635, 0, 0.0522314, 1.06748, -0.12628, 0.597816)
+animation = ""
+
+[node name="parents" type="Node3D" parent="." node_paths=PackedStringArray("mouth", "looping_audio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3357, 3.00404, -3.0445)
+script = ExtResource("8_0d01p")
+mouth = NodePath("marker_3d")
+character_file = ExtResource("9_vkpw6")
+looping_audio = [NodePath("arguing"), NodePath("misc_clash_sounds")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="parents"]
+
+[node name="arguing" type="AudioStreamPlayer3D" parent="parents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78147, 0, 0)
+stream = SubResource("AudioStreamRandomizer_7ilgw")
+volume_db = -3.179
+unit_size = 15.95
+max_db = 1.808
+bus = &"voices"
+script = ExtResource("12_vwwjq")
+interval = 2.0
+interval_randomness = 6.0
+
+[node name="misc_clash_sounds" type="AudioStreamPlayer3D" parent="parents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.546, 0, 3.45467)
+stream = SubResource("AudioStreamRandomizer_pbjjm")
+volume_db = -14.835
+bus = &"sfx"
+script = ExtResource("12_vwwjq")
+interval = 3.0
+interval_randomness = 10.0
+
+[node name="clash" type="AudioStreamPlayer3D" parent="parents"]
+stream = ExtResource("15_q68gw")
+autoplay = true
+
+[node name="clash2" type="AudioStreamPlayer3D" parent="parents"]
+stream = ExtResource("13_mhhm6")
+autoplay = true
+
+[node name="marker_3d" type="Marker3D" parent="parents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75426, -1.55754, 0)
+
+[node name="cake_leftovers" parent="." instance=ExtResource("18_jbq78")]
+transform = Transform3D(0.999331, 0, -0.0365739, 0, 1, 0, 0.0365739, 0, 0.999331, 0.290586, 0.568827, 0.463473)
+
+[node name="cake_piece" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(0.909592, 0, -0.415503, 0, 1, 0, 0.415503, 0, 0.909592, 0.689497, 0.549951, 0.599596)
+
+[node name="cake_piece2" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(-0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, -0.721772, -0.0223837, 0.549951, 0.687547)
+
+[node name="cake_piece3" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(-0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, -0.721772, 0.32621, 0.549951, 1.13722)
+
+[node name="cake_piece4" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(0.00900581, 0, 0.999959, 0, 1, 0, -0.999959, 0, 0.00900581, 0.378526, 0.549951, -0.135529)
+
+[node name="cake_piece5" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(-0.235668, 0, 0.971834, 0, 1, 0, -0.971834, 0, -0.235668, 0.0266285, 0.549951, 0.070384)
+
+[node name="cake_piece6" parent="." instance=ExtResource("19_r7h2m")]
+transform = Transform3D(0.752335, 0, 0.658781, 0, 1, 0, -0.658781, 0, 0.752335, 0.725029, 0.549951, 0.0488729)
+
+[editable path="lilith"]

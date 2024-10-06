@@ -1,0 +1,56 @@
+[gd_scene load_steps=13 format=3 uid="uid://3gf5odwhm0lb"]
+
+[ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_yw3mh"]
+[ext_resource type="Resource" path="res://data/characters/parents.dch" id="2_vnyqu"]
+[ext_resource type="AudioStream" uid="uid://bqdn7k0tdmnfq" path="res://assets/sfx/parents-arguing-man-lookatme.wav" id="3_4h6qr"]
+[ext_resource type="AudioStream" uid="uid://dndyforoiy05h" path="res://assets/sfx/couple-arguing-woman-waytogo.wav" id="4_rijwr"]
+[ext_resource type="Script" path="res://scenes/actors/audio_stream_looper.gd" id="5_5kqp2"]
+[ext_resource type="AudioStream" uid="uid://cfyybbrnhisef" path="res://assets/sfx/212638__taira-komori__tableware_crash1.mp3" id="6_s2bvw"]
+[ext_resource type="AudioStream" uid="uid://sllss45yo40s" path="res://assets/sfx/222991__speedenza__angry-knocking.wav" id="7_kc68e"]
+[ext_resource type="AudioStream" uid="uid://bb4sii8qmsp8e" path="res://assets/sfx/327668__juan_merie_venter__breaking-plates_1.wav" id="8_qvsuv"]
+[ext_resource type="AudioStream" uid="uid://ds46nmeh1o5jt" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_1.wav" id="9_s0v60"]
+[ext_resource type="AudioStream" uid="uid://cdaiatvtyixsy" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_2.wav" id="10_605vq"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
+streams_count = 2
+stream_0/stream = ExtResource("3_4h6qr")
+stream_1/stream = ExtResource("4_rijwr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pbjjm"]
+streams_count = 5
+stream_0/stream = ExtResource("6_s2bvw")
+stream_1/stream = ExtResource("7_kc68e")
+stream_2/stream = ExtResource("8_qvsuv")
+stream_3/stream = ExtResource("9_s0v60")
+stream_4/stream = ExtResource("10_605vq")
+
+[node name="scenelet_chapter3" type="Node3D"]
+
+[node name="parents" type="Node3D" parent="." node_paths=PackedStringArray("mouth", "looping_audio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3357, 3.00404, -3.0445)
+script = ExtResource("1_yw3mh")
+mouth = NodePath(".")
+character_file = ExtResource("2_vnyqu")
+looping_audio = [NodePath("arguing"), NodePath("misc_clash_sounds")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="parents"]
+
+[node name="arguing" type="AudioStreamPlayer3D" parent="parents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78147, 0, 0)
+stream = SubResource("AudioStreamRandomizer_7ilgw")
+volume_db = -3.179
+unit_size = 15.95
+max_db = 1.808
+bus = &"voices"
+script = ExtResource("5_5kqp2")
+interval = 2.0
+interval_randomness = 6.0
+
+[node name="misc_clash_sounds" type="AudioStreamPlayer3D" parent="parents"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.546, 0, 3.45467)
+stream = SubResource("AudioStreamRandomizer_pbjjm")
+volume_db = -14.835
+bus = &"sfx"
+script = ExtResource("5_5kqp2")
+interval = 3.0
+interval_randomness = 10.0

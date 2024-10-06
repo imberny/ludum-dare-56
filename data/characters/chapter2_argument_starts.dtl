@@ -1,0 +1,42 @@
+join joaquim center
+join lilith center
+join dave center
+join mickey center
+join tom center
+join parents center
+set {has_cake} = true
+parents: *CRASH*[pause=1.0][aa]
+- What’s happening?
+- Should we go see?
+- [Eat cake] *Om nom nom*
+	set {has_cake} = false
+	do Game.eat_cake()
+dave: Are your parents ok, Lil' Lo?
+[wait time="1.0"]
+tom: They sound ok to you?
+mickey: Hey, Logan. You ok little buddy?
+do Game.logan_leave_table()
+[wait time="3.0"]
+lilith: What's with him?
+tom: Really, Lilith? You haven't noticed before?
+mickey: Noticed what?
+dave: They're fighting again.
+label fighting again
+- Again?
+- [Nudge Tom] Hey, you gonna eat that? | [if {has_cake} == false]
+	tom: Take it.
+	do Game.tom_passes_cake()
+	set {has_cake} = true
+	jump fighting again
+- [Eat cake] *Om nom nom* | [if {has_cake} == true]
+	set {has_cake} = false
+	do Game.eat_cake()
+dave: I heard them last week.
+tom: And I the week before that.
+dave: Yeah, it’s not looking good.
+lilith: Why didn’t he tell me?
+tom: Maybe he doesn’t want to talk to you about it.
+lilith: What’s that mean?!
+- Ok, chill guys, I’ll go see him. Fixing stuff is my specialty.
+- Dave, you go see him.
+	- Mickey, give me his cake. | [if {has_cake} == false]
