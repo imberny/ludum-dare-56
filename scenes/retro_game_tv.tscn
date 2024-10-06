@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0a0jy4v5ys1y"]
+[gd_scene load_steps=6 format=3 uid="uid://ca257y0ga2whr"]
 
 [ext_resource type="VideoStream" path="res://assets/video/momo_lores.ogv" id="1_txct6"]
 [ext_resource type="Shader" path="res://scenes/tv_screen.gdshader" id="2_huepk"]
