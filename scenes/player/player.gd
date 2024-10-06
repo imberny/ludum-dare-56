@@ -37,6 +37,18 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	var handled_actions := [
+		"interact",
+		"crouch",
+		"move forward",
+		"move backward",
+		"move left",
+		"move right",
+	]
+	for action in handled_actions:
+		if event.is_action(action):
+			self.get_viewport().set_input_as_handled()
+
 	if not self._is_player_controlling:
 		return
 

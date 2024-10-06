@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce3tbwh3wfxba"]
+
+[ext_resource type="PackedScene" uid="uid://deoloiysqjjhv" path="res://assets/models/mickey.glb" id="1_wvrga"]
+[ext_resource type="Script" path="res://scenes/actors/actor.gd" id="2_5ya5f"]
+[ext_resource type="Resource" path="res://data/characters/mickey.dch" id="3_qn5o6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ouglm"]
+radius = 0.184778
+height = 0.692087
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fdwvq"]
+height = 3.95645
+radius = 0.170949
+
+[node name="mickey" node_paths=PackedStringArray("mouth") instance=ExtResource("1_wvrga")]
+script = ExtResource("2_5ya5f")
+animation = "sitting"
+mouth = NodePath("rig/Skeleton3D/head/mouth")
+character_file = ExtResource("3_qn5o6")
+
+[node name="Skeleton3D" parent="rig" index="0"]
+bones/0/position = Vector3(2.66453e-15, 0.624972, -0.0341603)
+bones/0/rotation = Quaternion(0.12582, 1.18262e-07, 1.49989e-08, 0.992053)
+bones/2/rotation = Quaternion(-0.077464, 1.18851e-07, -9.23443e-09, 0.996995)
+bones/3/rotation = Quaternion(0.00162703, -1.19209e-07, 1.9396e-10, 0.999999)
+bones/4/rotation = Quaternion(0.201738, 1.16758e-07, 2.4049e-08, 0.97944)
+bones/5/rotation = Quaternion(-0.0948574, 5.4172e-14, -2.26158e-08, 0.995491)
+bones/6/rotation = Quaternion(-0.0937118, -1.18685e-07, -1.11713e-08, 0.995599)
+bones/8/rotation = Quaternion(0.0109834, 0.859746, -0.3553, 0.366714)
+bones/9/rotation = Quaternion(-1.69501e-07, -1.22935e-07, 3.55765e-07, 1)
+bones/10/rotation = Quaternion(0.159969, 2.76982e-07, 2.07678e-07, 0.987122)
+bones/11/rotation = Quaternion(1.92057e-05, 1.22003e-05, -1.9744e-07, 1)
+bones/12/rotation = Quaternion(0.0123674, -7.51303e-05, 0.00502312, 0.999911)
+bones/14/rotation = Quaternion(-0.0109833, 0.859746, -0.3553, -0.366714)
+bones/15/rotation = Quaternion(-4.28409e-08, 2.98024e-08, -4.20958e-07, 1)
+bones/16/rotation = Quaternion(0.159968, -1.56415e-07, -9.00187e-08, 0.987122)
+bones/17/rotation = Quaternion(1.93305e-05, -1.23233e-05, 2.16066e-07, 1)
+bones/18/rotation = Quaternion(0.0123674, 7.52581e-05, -0.00502319, 0.999911)
+bones/21/rotation = Quaternion(0.986515, -2.13693e-08, 2.38749e-07, 0.163671)
+bones/22/rotation = Quaternion(1.49286e-15, 5.87348e-08, 7.84799e-10, 1)
+bones/23/rotation = Quaternion(0.0875408, -1.79026e-07, 2.06676e-08, 0.996161)
+bones/24/rotation = Quaternion(-6.14673e-08, 6.26934e-09, -8.21227e-10, 1)
+bones/25/rotation = Quaternion(-0.602028, 3.40862e-07, -3.78237e-07, 0.798475)
+bones/26/rotation = Quaternion(-3.30073e-08, 0.982239, -0.187636, 4.7536e-07)
+bones/27/rotation = Quaternion(0.986515, -5.03272e-09, -5.63922e-09, 0.163671)
+bones/28/rotation = Quaternion(5.58794e-08, -5.87349e-08, 1.20079e-08, 1)
+bones/29/rotation = Quaternion(0.0875404, 1.79026e-07, -2.06675e-08, 0.996161)
+bones/30/rotation = Quaternion(1.86265e-09, -6.26913e-09, 8.21202e-10, 1)
+bones/31/rotation = Quaternion(-0.602028, -3.40862e-07, 3.78236e-07, 0.798475)
+bones/32/rotation = Quaternion(-5.28629e-08, 0.982239, -0.187637, -4.91764e-07)
+
+[node name="head" type="BoneAttachment3D" parent="rig/Skeleton3D" index="1"]
+transform = Transform3D(1, -7.10543e-15, 7.10543e-14, 2.4869e-14, 1, -4.32134e-07, -1.27898e-13, 4.91738e-07, 1, 1.80841e-15, 1.10235, 0.0152856)
+bone_name = "DEF-spine.006"
+bone_idx = 6
+
+[node name="mouth" type="Marker3D" parent="rig/Skeleton3D/head" index="0"]
+transform = Transform3D(1, 5.32907e-15, 0, 3.55271e-15, 1, 2.23517e-08, -4.26326e-14, 0, 1, -2.06555e-08, 0.0537614, 0.0866352)
+
+[node name="torso" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
+transform = Transform3D(1, 1.06581e-14, 2.38419e-07, 5.95188e-08, 0.968339, -0.24964, -2.3087e-07, 0.24964, 0.968339, 2.66453e-15, 0.624972, -0.0341603)
+bone_name = "DEF-spine"
+bone_idx = 0
+
+[node name="static_body_3d" type="StaticBody3D" parent="rig/Skeleton3D/torso" index="0"]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="rig/Skeleton3D/torso/static_body_3d" index="0"]
+transform = Transform3D(1, -1.77636e-14, -1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0.308, 0.009)
+shape = SubResource("CapsuleShape3D_ouglm")
+
+[node name="block_jump_on_top" type="StaticBody3D" parent="." index="2"]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="block_jump_on_top" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948011, 0)
+shape = SubResource("CylinderShape3D_fdwvq")

@@ -6,7 +6,6 @@
 &"description": "The birthday boy.",
 &"offset": Vector2(0, 0),
 &"mirror": false,
-&"nicknames": ["Jojo"],
 &"display_name": "Joaquim",
 &"portraits": {},
 &"custom_info": {
@@ -14,6 +13,7 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "",
-&"_translation_id": ""
+&"_translation_id": "",
+&"nicknames": ["Jojo"],
+&"default_portrait": ""
 }

@@ -28,9 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_state_changed(new_state: State) -> void:
 	match new_state:
 		State.MENU:
-			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		State.CUTSCENE:
-			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		State.PLAYING:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
