@@ -19,6 +19,7 @@ var state := State.MENU:
 		state = value
 		self.state_changed.emit(state)
 var mouse_sensitivity := 0.002
+var joypad_look_sensitivity := 0.002
 
 var actors := {}
 var friends := 0
