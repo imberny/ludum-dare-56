@@ -8,7 +8,7 @@ class_name GuitarString extends MeshInstance3D
 @export var max_vibration := 0.005
 @export var frequency := 100.0
 @export var sound: AudioStreamPlayer3D
-@export_range(0, 12) var finger_position := 2:
+@export_range(0, 12) var finger_position := 0:
     set = _set_finger_position
 
 @export var pos_to_pitch: Array[float]
@@ -18,7 +18,15 @@ class_name GuitarString extends MeshInstance3D
 
 var _time := 0.0
 var _vibe := 0.0
-@onready var _tween := self.create_tween()
+var _is_muted := false
+@onready var _tween: Tween
+@onready var _frets := $frets as Node3D
+
+
+func _ready() -> void:
+    # just so the debugger shuts up
+    self._tween = self.create_tween()
+    self._tween.tween_interval(0.1)
 
 
 func _process(delta: float) -> void:
@@ -59,6 +67,9 @@ func _process(delta: float) -> void:
 
 
 func pluck() -> void:
+    if self._is_muted:
+        return
+
     self.sound.play()
     self._vibe = self.max_vibration
     self._tween.kill()
@@ -67,13 +78,30 @@ func pluck() -> void:
     self._tween.tween_property(self, "_vibe", 0.0, 0.2)
 
 
+func mute() -> void:
+    self._is_muted = true
+    self.sound.stop()
+
+
+func unmute() -> void:
+    self._is_muted = false
+
+
 func _test_pluck(_value) -> void:
     self.pluck()
 
 
+func get_fret_pos() -> Vector3:
+    var current_fret := self._frets.get_child(self.finger_position) as Node3D
+    return current_fret.global_position
+
+
 func _set_finger_position(value) -> void:
+    if value == finger_position:
+        return
+
+    # self.sound.stop()
     finger_position = value
     if not self.is_node_ready():
         await self.ready
     self.sound.pitch_scale = self.pos_to_pitch[value]
-    self.pluck()

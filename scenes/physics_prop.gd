@@ -11,6 +11,8 @@ func grab() -> void:
 
 
 func drop() -> void:
+	# wake up idiot
+	self.sleeping = false
 	self._is_grabbed = false
 
 

@@ -25,7 +25,7 @@ ambient_light_color = Color(0.219998, 0.798684, 0.804688, 1)
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb822"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2hyq"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -40,7 +40,6 @@ radius = 0.170979
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25965, 1.32832, 16.6633)
 collision_layer = 4
-collision_mask = 3
 script = ExtResource("2_3rg7b")
 jump_impulse = 3.0
 acceleration = 12.0
@@ -49,7 +48,7 @@ max_speed = 2.8
 hold_drag_force = 10.58
 
 [node name="camera" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0499091, 0)
+transform = Transform3D(1, 0, 0, 0, 0.841511, 0.54024, 0, -0.54024, 0.841511, 0, 0.0499091, 0)
 current = true
 
 [node name="interaction_ray" type="RayCast3D" parent="player/camera"]
@@ -99,6 +98,11 @@ text = "Pick up?"
 [node name="crouched_pos" type="Marker3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451616, 0)
 
+[node name="guitar_holder" type="Marker3D" parent="player"]
+transform = Transform3D(-0.437911, -0.898462, 0.0316151, -0.409936, 0.230853, 0.882416, -0.800116, 0.373459, -0.469406, 0.239293, -0.236066, -0.227325)
+
+[node name="remote_transform_3d" type="RemoteTransform3D" parent="player/guitar_holder"]
+
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yvrrh")
 
@@ -126,7 +130,7 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_vb822")
+viewport_material = SubResource("StandardMaterial3D_d2hyq")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
@@ -172,7 +176,12 @@ wait_time = 1.5
 one_shot = true
 
 [node name="guitar" parent="." instance=ExtResource("11_pev0o")]
-transform = Transform3D(0.890927, 0.44599, -0.0856822, 0, 0.188667, 0.982041, 0.454146, -0.874927, 0.168088, 7.91159, 0.713839, 15.2408)
+transform = Transform3D(0.890927, 0.44599, -0.0856822, 0, 0.188667, 0.982041, 0.454146, -0.874927, 0.168088, 8.47919, 0.749997, 15.3189)
+hand_pos = 0
+finger_0_pos = 1
+finger_1_pos = 4
+finger_2_pos = 0
+finger_3_pos = 5
 
 [node name="scenelet_chapter3" parent="." instance=ExtResource("11_lxyik")]
 
