@@ -23,6 +23,7 @@ var _saved_chords := {}
 
 
 func start_playing() -> void:
+    $how_to_play.visible = true
     self.pick.visible = true
     self.hand.visible = true
     self._update_fingers()
@@ -41,6 +42,7 @@ func start_playing() -> void:
 
 
 func stop_playing() -> void:
+    $how_to_play.visible = false
     self.pick.visible = false
     self.hand.visible = false
     self._is_playing = false
@@ -193,29 +195,27 @@ func _update_fingers() -> void:
 
     var index_string := self.strings[self.finger_0_pos]
     index_string.finger_position = self.hand_pos + 1
+    index_string.adjust_pitch()
     finger_0.global_position = index_string.get_fret_pos()
 
     var middle_string := self.strings[self.finger_1_pos]
     middle_string.finger_position = self.hand_pos + 1
+    middle_string.adjust_pitch()
     finger_1.global_position = middle_string.get_fret_pos()
 
     var ring_string := self.strings[self.finger_2_pos]
     ring_string.finger_position = self.hand_pos + 2
+    ring_string.adjust_pitch()
     finger_2.global_position = ring_string.get_fret_pos()
 
     var pinky_string := self.strings[self.finger_3_pos]
     pinky_string.finger_position = self.hand_pos + 2
+    pinky_string.adjust_pitch()
     finger_3.global_position = pinky_string.get_fret_pos()
 
     for string in strings:
-        print("string %s is pos %s" % [string.name, string.finger_position])
         if self.hand_pos > string.finger_position or string.finger_position - self.hand_pos > 2:
             string.finger_position = hand_pos - 1
-    print("active finger: %s" % self._active_finger)
-    print("index is pos: %s" % self.finger_0_pos)
-    print("middle is pos: %s" % self.finger_1_pos)
-    print("ring is pos: %s" % self.finger_2_pos)
-    print("pinky is pos: %s" % self.finger_3_pos)
     self._highlight_finger()
 
 

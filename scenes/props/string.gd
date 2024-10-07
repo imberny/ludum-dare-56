@@ -70,12 +70,17 @@ func pluck() -> void:
     if self._is_muted:
         return
 
+    self.adjust_pitch()
     self.sound.play()
     self._vibe = self.max_vibration
     self._tween.kill()
     self._tween = self.create_tween()
 
     self._tween.tween_property(self, "_vibe", 0.0, 0.2)
+
+
+func adjust_pitch() -> void:
+    self.sound.pitch_scale = self.pos_to_pitch[self.finger_position]
 
 
 func mute() -> void:
@@ -102,6 +107,3 @@ func _set_finger_position(value) -> void:
 
     # self.sound.stop()
     finger_position = value
-    if not self.is_node_ready():
-        await self.ready
-    self.sound.pitch_scale = self.pos_to_pitch[value]

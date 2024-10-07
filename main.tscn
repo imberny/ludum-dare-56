@@ -25,7 +25,7 @@ ambient_light_color = Color(0.219998, 0.798684, 0.804688, 1)
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2hyq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5bqi"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -52,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 0.841511, 0.54024, 0, -0.54024, 0.841511, 0,
 current = true
 
 [node name="interaction_ray" type="RayCast3D" parent="player/camera"]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -1.3)
 collision_mask = 258
 collide_with_areas = true
 
@@ -130,7 +130,7 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_d2hyq")
+viewport_material = SubResource("StandardMaterial3D_j5bqi")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]

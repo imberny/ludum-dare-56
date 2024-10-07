@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dxhry5e3nrmwj"]
+[gd_scene load_steps=36 format=4 uid="uid://dxhry5e3nrmwj"]
 
 [ext_resource type="PackedScene" uid="uid://pgk5fe5ffq2r" path="res://assets/models/props/guitar.glb" id="1_he17j"]
 [ext_resource type="PackedScene" uid="uid://bg0tqt3o3olox" path="res://scenes/props/string.tscn" id="2_1dnq7"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dgox6adpxsmyb" path="res://scenes/props/guitar_pick.tscn" id="7_x108f"]
 [ext_resource type="PackedScene" uid="uid://xnkahia4yxun" path="res://scenes/props/finger.tscn" id="9_ioegv"]
 [ext_resource type="AudioStream" uid="uid://cx1qkvmc4oa1a" path="res://assets/sfx/guitar/8399__speedy__clean_finger_slide_delay.wav" id="10_ag4vp"]
+[ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="11_3jmi8"]
+[ext_resource type="FontFile" uid="uid://dlngbnbt8wajq" path="res://assets/fonts/ComicHelvetic_Light.otf" id="12_qh86l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_li6nw"]
 size = Vector3(0.180298, 0.387939, 0.11908)
@@ -193,38 +195,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00225283, 0.319456, -0.0030
 shape = SubResource("BoxShape3D_pxurd")
 
 [node name="e" parent="." index="4" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(0.999994, 0.00349065, 0, -0.00349065, 0.999994, 0, 0, 0, 1, -0.0195986, -0.002, 0.00802716)
+transform = Transform3D(0.999994, 0.00349065, 0, -0.00349065, 0.999994, 0, 0, 0, 1, -0.0195986, -0.002, 0.009)
 mesh = SubResource("ImmediateMesh_takcg")
 
 [node name="sound" parent="e" index="0"]
 stream = SubResource("AudioStreamWAV_5n2xj")
 
 [node name="a" parent="." index="5" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113503, -0.002, 0.00802716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113503, -0.002, 0.009)
 mesh = SubResource("ImmediateMesh_1ckma")
 
 [node name="sound" parent="a" index="0"]
 stream = ExtResource("3_dqs6x")
 
 [node name="d" parent="." index="6" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(0.999998, 0.00174533, 0, -0.00174533, 0.999998, 0, 0, 0, 1, -0.00472588, -0.002, 0.00802716)
+transform = Transform3D(0.999998, 0.00174533, 0, -0.00174533, 0.999998, 0, 0, 0, 1, -0.00472588, -0.002, 0.009)
 mesh = SubResource("ImmediateMesh_8swsm")
 
 [node name="sound" parent="d" index="0"]
 stream = ExtResource("4_tuurf")
 
 [node name="g" parent="." index="7" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(0.999998, -0.00174533, 0, 0.00174533, 0.999998, 0, 0, 0, 1, 0.00270269, -0.002, 0.00802716)
+transform = Transform3D(0.999998, -0.00174533, 0, 0.00174533, 0.999998, 0, 0, 0, 1, 0.00270269, -0.002, 0.009)
 
 [node name="b" parent="." index="8" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(0.999998, -0.00174533, 0, 0.00174533, 0.999998, 0, 0, 0, 1, 0.0111533, -0.002, 0.00802716)
+transform = Transform3D(0.999998, -0.00174533, 0, 0.00174533, 0.999998, 0, 0, 0, 1, 0.0111533, -0.002, 0.009)
 mesh = SubResource("ImmediateMesh_otjy6")
 
 [node name="sound" parent="b" index="0"]
 stream = ExtResource("5_n0fxl")
 
 [node name="e1" parent="." index="9" instance=ExtResource("2_1dnq7")]
-transform = Transform3D(0.999994, -0.00349065, 0, 0.00349065, 0.999994, 0, 0, 0, 1, 0.0202822, -0.002, 0.00802716)
+transform = Transform3D(0.999994, -0.00349065, 0, 0.00349065, 0.999994, 0, 0, 0, 1, 0.0202822, -0.002, 0.009)
 mesh = SubResource("ImmediateMesh_rqrca")
 
 [node name="sound" parent="e1" index="0"]
@@ -272,6 +274,52 @@ mesh = SubResource("ArrayMesh_eq027")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299082, 0)
 stream = ExtResource("10_ag4vp")
 volume_db = -37.086
+
+[node name="how_to_play" type="Control" parent="." index="15"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("11_3jmi8")
+
+[node name="margin_container" type="MarginContainer" parent="how_to_play" index="0"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="v_box_container" type="VBoxContainer" parent="how_to_play/margin_container" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="how_to_play" type="Label" parent="how_to_play/margin_container/v_box_container" index="0"]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("12_qh86l")
+theme_override_font_sizes/font_size = 32
+text = "How to play the guitar:
+
+Mouse to move pick
+Space to strum
+A or D to select finger
+W or S to move finger
+Shift + A or D to move hand
+Shift + 1-9 to save chord
+1-9 to load a saved chord
+"
+horizontal_alignment = 2
 
 [editable path="e"]
 [editable path="a"]
