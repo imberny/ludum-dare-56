@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwglyn1pxvf2n"]
+[gd_scene load_steps=4 format=3 uid="uid://bwglyn1pxvf2n"]
 
 [ext_resource type="Script" path="res://scenes/levels/friend.gd" id="1_0j8if"]
 [ext_resource type="PackedScene" uid="uid://gpq5v5lkhhob" path="res://scenes/actors/tom.tscn" id="1_1g04y"]
+[ext_resource type="PackedScene" uid="uid://cwfd1xdwr85vp" path="res://assets/models/props/guitar_tom.glb" id="3_3pall"]
 
 [node name="friend_tom" type="Marker3D"]
 transform = Transform3D(0.401948, 0, -0.915662, 0, 1, 0, 0.915663, 0, 0.401948, 3.81579, -0.16798, 6.54873)
@@ -9,3 +10,6 @@ script = ExtResource("1_0j8if")
 
 [node name="tom" parent="." instance=ExtResource("1_1g04y")]
 animation = "friend"
+
+[node name="guitar_tom" parent="." instance=ExtResource("3_3pall")]
+transform = Transform3D(-0.205495, -0.524782, 0.826061, -0.160142, 0.850729, 0.500615, -0.965467, -0.0294136, -0.25886, 0.527879, 0.368939, -0.0295517)

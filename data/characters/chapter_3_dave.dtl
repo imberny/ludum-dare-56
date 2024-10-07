@@ -1,12 +1,12 @@
 join dave center
 set {talked_dave} += 1
 if {talked_dave} == 0:
-	- So what did Logan say? | [if {dave_talked_to_logan} == true]
+	- So what did Logan say? | [if {Game.dave_talked_to_logan} == true]
 		dave: That he's sorry. He wish we weren't here to hear that.
 		dave: He just wants to play that old crappy game.
 		dave: We beat it like 1000 times together! I would be bored of it.
 		dave: But it was the first game he got, back when they had family trips.
-	- His parents fight a lot? | [if {dave_talked_to_logan} == false]
+	- His parents fight a lot? | [if {Game.dave_talked_to_logan} == false]
 		dave: More and more looks like.
 		dave: Back when Lil' Lo and I were[pause=0.4] - uh -[pause=0.4] little, they were the coolest parents!
 		dave: I remember when they brought back that old Gametindo from their family trip.[pause=0.6] I was super jealous!

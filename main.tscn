@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bbu8j4sjdr8cc" path="res://scenes/levels/basement.tscn" id="2_mapes"]
 [ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="2_xrdut"]
 [ext_resource type="PackedScene" uid="uid://ca257y0ga2whr" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
-[ext_resource type="PackedScene" uid="uid://3gf5odwhm0lb" path="res://scenes/levels/scenelet_chapter_3.tscn" id="11_lxyik"]
 [ext_resource type="PackedScene" uid="uid://dxhry5e3nrmwj" path="res://scenes/props/guitar.tscn" id="11_pev0o"]
+[ext_resource type="PackedScene" uid="uid://lljxnrty2vys" path="res://scenes/levels/scenelet_chapter_1.tscn" id="11_ryi1m"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
 [ext_resource type="Script" path="res://assets/models/props/tv.gd" id="12_8ftgm"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
@@ -25,7 +25,7 @@ ambient_light_color = Color(0.219998, 0.798684, 0.804688, 1)
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5bqi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sureo"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -48,7 +48,7 @@ max_speed = 2.8
 hold_drag_force = 10.58
 
 [node name="camera" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 0.841511, 0.54024, 0, -0.54024, 0.841511, 0, 0.0499091, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0499091, 0)
 current = true
 
 [node name="interaction_ray" type="RayCast3D" parent="player/camera"]
@@ -130,14 +130,15 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_j5bqi")
+viewport_material = SubResource("StandardMaterial3D_sureo")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
 transform = Transform3D(-1.08943, 0, 2.9087, 0, 3.10602, 0, -2.9087, 0, -1.08943, 0, 1.78729, 0)
 stream = ExtResource("11_vim10")
 attenuation_model = 1
-volume_db = -40.0
+volume_db = -50.0
+unit_size = 8.0
 bus = &"sfx"
 
 [node name="static_body_3d" type="StaticBody3D" parent="tv"]
@@ -176,13 +177,13 @@ wait_time = 1.5
 one_shot = true
 
 [node name="guitar" parent="." instance=ExtResource("11_pev0o")]
-transform = Transform3D(0.890927, 0.44599, -0.0856822, 0, 0.188667, 0.982041, 0.454146, -0.874927, 0.168088, 8.47919, 0.749997, 15.3189)
+transform = Transform3D(0.890927, 0.44599, -0.0856822, 0, 0.188667, 0.982041, 0.454146, -0.874927, 0.168088, 8.03015, 0.690812, 15.4358)
 hand_pos = 0
 finger_0_pos = 1
 finger_1_pos = 4
 finger_2_pos = 0
 finger_3_pos = 5
 
-[node name="scenelet_chapter3" parent="." instance=ExtResource("11_lxyik")]
+[node name="scenelet_chapter1" parent="." instance=ExtResource("11_ryi1m")]
 
 [editable path="tv"]

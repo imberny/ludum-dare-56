@@ -43,18 +43,31 @@ func _process(delta: float) -> void:
     var cross := dir.cross(Vector3.BACK)
     var width_offset := cross * self.width * 0.5
     var step := length / float(resolution)
+    var current_finger_pos := self._frets.get_child(self.finger_position).position as Vector3
     for i in resolution:
-        var vibe_offset := cross * self._vibe * sin((i * step) * self.frequency)
-        var next_vibe_offset := cross * self._vibe * sin(((i + 1) * step) * self.frequency)
+        var vibe_offset := cross * self._vibe * sin((i * step) * self.frequency + self._time)
+        var next_vibe_offset := (
+            cross * self._vibe * sin(((i + 1) * step) * self.frequency + self._time)
+        )
         if i == 0:
             vibe_offset = Vector3.ZERO
         if i == resolution - 1:
             next_vibe_offset = Vector3.ZERO
 
-        var v1 := start_pos + i * step * dir + width_offset + vibe_offset
-        var v2 := start_pos + i * step * dir - width_offset + vibe_offset
-        var v3 := start_pos + (i + 1) * step * dir + width_offset + next_vibe_offset
-        var v4 := start_pos + (i + 1) * step * dir - width_offset + next_vibe_offset
+        var v1 := start_pos + i * step * dir + width_offset
+        var v2 := start_pos + i * step * dir - width_offset
+        var v3 := start_pos + (i + 1) * step * dir + width_offset
+        var v4 := start_pos + (i + 1) * step * dir - width_offset
+
+        # jam is nearing end and can't bother with better code
+        if v1.y < current_finger_pos.y:
+            v1 += vibe_offset
+        if v2.y < current_finger_pos.y:
+            v2 += vibe_offset
+        if v3.y < current_finger_pos.y:
+            v3 += next_vibe_offset
+        if v4.y < current_finger_pos.y:
+            v4 += next_vibe_offset
 
         mesh.surface_add_vertex(v1)
         mesh.surface_add_vertex(v2)
@@ -72,11 +85,15 @@ func pluck() -> void:
 
     self.adjust_pitch()
     self.sound.play()
-    self._vibe = self.max_vibration
+    self._vibe = self.max_vibration + randf() * self.max_vibration / 3.0
     self._tween.kill()
     self._tween = self.create_tween()
 
     self._tween.tween_property(self, "_vibe", 0.0, 0.2)
+
+
+func stop() -> void:
+    self.sound.stop()
 
 
 func adjust_pitch() -> void:

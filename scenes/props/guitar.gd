@@ -13,6 +13,7 @@ class_name GuitarProp extends PhysicsProp
 
 @export var min_pick_pos: Node3D
 @export var max_pick_pos: Node3D
+@export var arpeggio_timer: Timer
 
 var _sfx_bus_volume: float = 0.0
 var _voices_bus_volume: float = 0.0
@@ -21,8 +22,13 @@ var _active_finger := 0
 
 var _saved_chords := {}
 
+var _strum_count := 0
+var _last_plucked_string := 0
+var _min_arpeggio_time := 0.2
+
 
 func start_playing() -> void:
+    Game.guitar_picked_up.emit()
     $how_to_play.visible = true
     self.pick.visible = true
     self.hand.visible = true
@@ -33,15 +39,17 @@ func start_playing() -> void:
     # self._sfx_bus_volume = AudioServer.get_bus_volume_db(1)
     # self._voices_bus_volume = AudioServer.get_bus_volume_db(2)
     # absolute rubbish
-    for _i in 1000:
+    for _i in 100:
         var cur_sfx := AudioServer.get_bus_volume_db(1)
         var cur_voices := AudioServer.get_bus_volume_db(2)
-        AudioServer.set_bus_volume_db(1, cur_sfx - 50.0 / 1000.0)
-        AudioServer.set_bus_volume_db(2, cur_voices - 50.0 / 1000.0)
+        AudioServer.set_bus_volume_db(1, cur_sfx - 50.0 / 100.0)
+        AudioServer.set_bus_volume_db(2, cur_voices - 50.0 / 100.0)
         await self.get_tree().process_frame
 
 
 func stop_playing() -> void:
+    for string in self.strings:
+        string.stop()
     $how_to_play.visible = false
     self.pick.visible = false
     self.hand.visible = false
@@ -49,11 +57,11 @@ func stop_playing() -> void:
     # pls dont laugh
     var sfx_diff := self._sfx_bus_volume - AudioServer.get_bus_volume_db(1)
     var voices_diff := self._voices_bus_volume - AudioServer.get_bus_volume_db(2)
-    for _i in 1000:
+    for _i in 100:
         var cur_sfx := AudioServer.get_bus_volume_db(1)
         var cur_voices := AudioServer.get_bus_volume_db(2)
-        AudioServer.set_bus_volume_db(1, cur_sfx + sfx_diff / 1000.0)
-        AudioServer.set_bus_volume_db(2, cur_voices + voices_diff / 1000.0)
+        AudioServer.set_bus_volume_db(1, cur_sfx + sfx_diff / 100.0)
+        AudioServer.set_bus_volume_db(2, cur_voices + voices_diff / 100.0)
         await self.get_tree().process_frame
 
 
@@ -67,6 +75,9 @@ func _unhandled_input(event: InputEvent) -> void:
         var relative_y := mouse_motion_event.relative.y
         self.move_pick(relative_y * Game.mouse_sensitivity * self.pick_sentitivity)
     elif event.is_action_pressed("jump"):
+        self._strum_count += 1
+        if self._strum_count == 12:
+            Game.guitar_strummed.emit()
         # strum all strings
         var dist_to_min := self.pick.position.distance_to(self.min_pick_pos.position)
         var dist_to_max := self.pick.position.distance_to(self.max_pick_pos.position)
@@ -267,12 +278,31 @@ func move_pick(y_offset: float) -> void:
         next_pick_pos.x, self.min_pick_pos.position.x, self.max_pick_pos.position.x
     )
 
+    var num_plucked := 0
+    var string_plucked: GuitarString
     for string in self.strings:
         var string_pos_x := string.position.x
         var x0 := pick_pos.x
         var x1 := next_pick_pos.x
         var is_plucked: bool = min(x0, x1) < string_pos_x and string_pos_x < max(x0, x1)
         if is_plucked:
+            num_plucked += 1
             string.pluck()
+            string_plucked = string
+    if num_plucked == 1:
+        var string_index := self.strings.find(string_plucked)
+        var is_in_arpeggio_sequence := string_index == self._last_plucked_string + 1
+        if string_index == 0:
+            self.arpeggio_timer.start()
+
+        var is_within_arpeggio_time_limit := (
+            self.arpeggio_timer.wait_time - self.arpeggio_timer.time_left > self._min_arpeggio_time
+        )
+        var is_arpeggio_timer_running := self.arpeggio_timer.time_left > 0.0
+        if is_in_arpeggio_sequence and is_within_arpeggio_time_limit and is_arpeggio_timer_running:
+            self._last_plucked_string = string_index
+            self.arpeggio_timer.start()
+        if self._last_plucked_string == 5 and self.arpeggio_timer.time_left > 0.0:
+            Game.arpeggio.emit()
 
     self.pick.position = next_pick_pos

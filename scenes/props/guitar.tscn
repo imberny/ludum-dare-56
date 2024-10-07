@@ -165,7 +165,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ygiye")
 
-[node name="guitar" node_paths=PackedStringArray("pick", "strings", "hand", "hand_slide_sound", "min_pick_pos", "max_pick_pos") instance=ExtResource("1_he17j")]
+[node name="guitar" node_paths=PackedStringArray("pick", "strings", "hand", "hand_slide_sound", "min_pick_pos", "max_pick_pos", "arpeggio_timer") instance=ExtResource("1_he17j")]
 collision_layer = 2
 mass = 3.0
 script = ExtResource("2_xj6ew")
@@ -181,6 +181,7 @@ hand = NodePath("hand")
 hand_slide_sound = NodePath("hand_slide")
 min_pick_pos = NodePath("bound_left")
 max_pick_pos = NodePath("bound_right")
+arpeggio_timer = NodePath("timer")
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201406, -0.026245, -0.0337829)
@@ -246,7 +247,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304451, 0, 0)
 visible = false
 
 [node name="finger0" parent="hand" index="0" instance=ExtResource("9_ioegv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185998, 0.382834, 0.00678957)
+transform = Transform3D(0.928842, -0.370201, 0.0142833, 0.370157, 0.928952, 0.00569211, -0.0153757, -4.65661e-10, 0.999882, -0.0185998, 0.382834, 0.00678957)
 highlight_material = SubResource("StandardMaterial3D_dvhb7")
 
 [node name="finger" parent="hand/finger0" index="0"]
@@ -273,7 +274,7 @@ mesh = SubResource("ArrayMesh_eq027")
 [node name="hand_slide" type="AudioStreamPlayer3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299082, 0)
 stream = ExtResource("10_ag4vp")
-volume_db = -37.086
+volume_db = -41.0
 
 [node name="how_to_play" type="Control" parent="." index="15"]
 visible = false
@@ -320,6 +321,10 @@ Shift + 1-9 to save chord
 1-9 to load a saved chord
 "
 horizontal_alignment = 2
+
+[node name="timer" type="Timer" parent="." index="16"]
+wait_time = 0.6
+one_shot = true
 
 [editable path="e"]
 [editable path="a"]

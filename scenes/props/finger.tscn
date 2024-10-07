@@ -44,6 +44,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ygiye")
 
 [node name="finger" instance=ExtResource("1_wjvfb")]
+transform = Transform3D(0.928842, -0.370201, 0.0142833, 0.370157, 0.928952, 0.00569211, -0.0153757, 0, 0.999882, 0, 0, 0.00161382)
 script = ExtResource("2_bnmpy")
 highlight_material = SubResource("StandardMaterial3D_1hch6")
 

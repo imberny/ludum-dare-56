@@ -39,7 +39,7 @@ tom: Maybe he doesn’t want to talk to you about it.
 lilith: What’s that mean?!
 - Ok, chill guys, I’ll go see him. Fixing stuff is my specialty.
 - Dave, you go see him.
-	set {dave_talked_to_logan} = true
+	set {Game.dave_talked_to_logan} = true
 	if {has_cake} == false:
 		- Mickey, give me his cake.
 			[signal arg="get dave's cake"]

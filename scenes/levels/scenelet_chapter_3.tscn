@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://3gf5odwhm0lb"]
+[gd_scene load_steps=45 format=3 uid="uid://3gf5odwhm0lb"]
 
 [ext_resource type="Script" path="res://scenes/levels/scenelet_chapter_3.gd" id="1_ckhlb"]
 [ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_yw3mh"]
@@ -24,11 +24,17 @@
 [ext_resource type="Resource" path="res://data/characters/chapter_3_dave.dtl" id="18_ew152"]
 [ext_resource type="PackedScene" uid="uid://r7pbhn8mupaq" path="res://scenes/levels/scenelet_friend_lilith.tscn" id="19_dgy1q"]
 [ext_resource type="Resource" path="res://data/characters/chapter_3_tom.dtl" id="20_ayyyy"]
+[ext_resource type="Script" path="res://scenes/levels/dave_scenelet.gd" id="21_kpner"]
 [ext_resource type="PackedScene" uid="uid://3o0x6y5dby83" path="res://scenes/levels/scenelet_friend_dave.tscn" id="22_0r1k5"]
+[ext_resource type="Resource" path="res://data/characters/dave_reacts_to_guitar.dtl" id="24_7h43c"]
+[ext_resource type="Script" path="res://scenes/levels/tom_scenelet.gd" id="24_yta2o"]
 [ext_resource type="PackedScene" uid="uid://bwglyn1pxvf2n" path="res://scenes/levels/scenelet_friend_tom.tscn" id="25_q0wyh"]
 [ext_resource type="PackedScene" uid="uid://cjglxjae53yhy" path="res://scenes/props/cake_leftovers.tscn" id="27_bkg07"]
 [ext_resource type="PackedScene" uid="uid://b0oqp2yea7ldq" path="res://scenes/props/guitar_tom.tscn" id="27_ecvrt"]
+[ext_resource type="AudioStream" uid="uid://bd3kpm5f4g540" path="res://assets/sfx/guitar/51246__rutgermuller__guitar-amateuristic-moody.wav" id="27_pewr2"]
 [ext_resource type="PackedScene" uid="uid://f6wob3ikfa4n" path="res://scenes/props/cake_piece.tscn" id="28_6ojes"]
+[ext_resource type="Resource" path="res://data/characters/tom_reacts_to_play_guitar.dtl" id="30_r4n1e"]
+[ext_resource type="Resource" path="res://data/characters/tom_reacts_to_arpeggio.dtl" id="31_vtpdo"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
 streams_count = 2
@@ -53,7 +59,11 @@ radius = 0.283997
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3flss"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_v7hyl"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_3dixa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e3bw2"]
 
 [node name="scenelet_chapter3" type="Node3D"]
 script = ExtResource("1_ckhlb")
@@ -135,11 +145,12 @@ shape = SubResource("SphereShape3D_naec7")
 [node name="lilith" parent="lilith_scenelet" instance=ExtResource("15_4ym0q")]
 animation = "listening"
 
-[node name="dave_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+[node name="dave_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("guitar_scenelet", "participants")]
 transform = Transform3D(-0.846853, 0, -0.531827, 0, 1, 0, 0.531827, 0, -0.846853, 10.1148, 0.0379647, 14.8765)
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("12_38fne")
+script = ExtResource("21_kpner")
+guitar_scenelet = NodePath("scenelet_guitar")
 timeline_file = ExtResource("18_ew152")
 participants = [NodePath("dave")]
 next_scenelet = ExtResource("22_0r1k5")
@@ -152,11 +163,23 @@ shape = SubResource("SphereShape3D_3flss")
 [node name="dave" parent="dave_scenelet" instance=ExtResource("16_2kdqb")]
 animation = "laying on couch"
 
-[node name="tom_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+[node name="scenelet_guitar" type="Area3D" parent="dave_scenelet" node_paths=PackedStringArray("participants")]
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("24_7h43c")
+participants = [NodePath("../dave")]
+is_cutscene = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="dave_scenelet/scenelet_guitar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20485, 0)
+shape = SubResource("SphereShape3D_v7hyl")
+
+[node name="tom_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("guitar_scenelet", "arpeggio_scenelet", "participants")]
 transform = Transform3D(-0.999718, 0, -0.0237517, 0, 1, 0, 0.0237517, 0, -0.999718, 8.20487, 0, 17.0162)
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("12_38fne")
+script = ExtResource("24_yta2o")
+guitar_scenelet = NodePath("scenelet_guitar")
+arpeggio_scenelet = NodePath("scenelet_arpeggio")
 timeline_file = ExtResource("20_ayyyy")
 participants = [NodePath("tom")]
 next_scenelet = ExtResource("25_q0wyh")
@@ -166,12 +189,39 @@ use_fade_to_black = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791428, 0)
 shape = SubResource("SphereShape3D_3dixa")
 
-[node name="tom" parent="tom_scenelet" instance=ExtResource("17_86p6y")]
+[node name="tom" parent="tom_scenelet" node_paths=PackedStringArray("looping_audio") instance=ExtResource("17_86p6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00242901, 0, -0.10223)
 animation = "guitar"
+looping_audio = [NodePath("audio_stream_looper")]
+
+[node name="audio_stream_looper" type="AudioStreamPlayer3D" parent="tom_scenelet/tom"]
+stream = ExtResource("27_pewr2")
+volume_db = -38.33
+bus = &"sfx"
+script = ExtResource("5_5kqp2")
 
 [node name="guitar_tom" parent="tom_scenelet" instance=ExtResource("27_ecvrt")]
 transform = Transform3D(0.619074, 0.784371, 0.0388498, -0.767934, 0.594263, 0.239018, 0.164392, -0.177804, 0.970237, -0.00223255, 0.63556, 0.0939846)
+
+[node name="scenelet_guitar" type="Area3D" parent="tom_scenelet" node_paths=PackedStringArray("participants")]
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("30_r4n1e")
+participants = [NodePath("../tom")]
+is_cutscene = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="tom_scenelet/scenelet_guitar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -539.714, 0)
+shape = SubResource("SphereShape3D_e3bw2")
+
+[node name="scenelet_arpeggio" type="Area3D" parent="tom_scenelet" node_paths=PackedStringArray("participants")]
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("31_vtpdo")
+participants = [NodePath("../tom")]
+is_cutscene = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="tom_scenelet/scenelet_arpeggio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -539.714, 0)
+shape = SubResource("SphereShape3D_e3bw2")
 
 [node name="marker_3d" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 15.1179)

@@ -41,7 +41,6 @@ looping_audio = [NodePath("happy_birthday_tune")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.907785, 0)
 stream = ExtResource("5_x00lq")
 volume_db = -34.966
-autoplay = true
 script = ExtResource("6_pdl7w")
 
 [node name="lilith" parent="." instance=ExtResource("5_2p3hd")]

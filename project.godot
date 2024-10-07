@@ -44,8 +44,11 @@ directories/dtl_directory={
 "chapter_3_logan": "res://data/characters/chapter_3_logan.dtl",
 "chapter_3_mickey": "res://data/characters/chapter_3_mickey.dtl",
 "chapter_3_tom": "res://data/characters/chapter_3_tom.dtl",
+"dave_reacts_to_guitar": "res://data/characters/dave_reacts_to_guitar.dtl",
 "friends": "res://data/characters/friends.dtl",
-"test": "res://data/characters/test.dtl"
+"test": "res://data/characters/test.dtl",
+"tom_reacts_to_arpeggio": "res://data/characters/tom_reacts_to_arpeggio.dtl",
+"tom_reacts_to_play_guitar": "res://data/characters/tom_reacts_to_play_guitar.dtl"
 }
 layout/style_list=["res://data/dialogic_bubble_style.tres", "res://data/dialogic_default_bubbles.tres", "res://data/dialogic_vn.tres"]
 layout/default_style="res://data/dialogic_bubble_style.tres"
@@ -70,7 +73,6 @@ choices/reveal_by_input=false
 choices/hotkey_behaviour=0
 text/autopauses={}
 variables={
-"dave_talked_to_logan": false,
 "has_cake": false,
 "talked_dave": -1,
 "talked_lilith": -1,

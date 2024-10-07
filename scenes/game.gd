@@ -6,6 +6,9 @@ signal fading_out
 signal faded_out
 signal faded_in
 signal turn_tv_on
+signal guitar_picked_up
+signal guitar_strummed
+signal arpeggio
 
 enum State { MENU, CUTSCENE, PLAYING }
 
@@ -24,6 +27,7 @@ var joypad_look_sensitivity := 0.002
 var actors := {}
 var friends := 0
 var talked_logan := -1
+var dave_talked_to_logan := false
 var game_started := false
 var _menu: Control
 var _previous_state: State
