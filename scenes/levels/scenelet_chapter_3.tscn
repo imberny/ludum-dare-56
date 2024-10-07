@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://3gf5odwhm0lb"]
+[gd_scene load_steps=36 format=3 uid="uid://3gf5odwhm0lb"]
 
 [ext_resource type="Script" path="res://scenes/levels/scenelet_chapter_3.gd" id="1_ckhlb"]
 [ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_yw3mh"]
@@ -19,10 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://bja3q26jutghx" path="res://scenes/actors/lilith.tscn" id="15_4ym0q"]
 [ext_resource type="PackedScene" uid="uid://txpi01erx1mq" path="res://scenes/actors/dave.tscn" id="16_2kdqb"]
 [ext_resource type="Resource" path="res://data/characters/chapter_3_lilith.dtl" id="16_bv8i7"]
+[ext_resource type="PackedScene" uid="uid://bc2ojjqutuytx" path="res://scenes/levels/scenelet_friend_mickey.tscn" id="16_urkdv"]
 [ext_resource type="PackedScene" uid="uid://gpq5v5lkhhob" path="res://scenes/actors/tom.tscn" id="17_86p6y"]
-[ext_resource type="Resource" path="res://data/characters/joaquim.dch" id="17_p73nb"]
 [ext_resource type="Resource" path="res://data/characters/chapter_3_dave.dtl" id="18_ew152"]
+[ext_resource type="PackedScene" uid="uid://r7pbhn8mupaq" path="res://scenes/levels/scenelet_friend_lilith.tscn" id="19_dgy1q"]
 [ext_resource type="Resource" path="res://data/characters/chapter_3_tom.dtl" id="20_ayyyy"]
+[ext_resource type="PackedScene" uid="uid://3o0x6y5dby83" path="res://scenes/levels/scenelet_friend_dave.tscn" id="22_0r1k5"]
+[ext_resource type="PackedScene" uid="uid://bwglyn1pxvf2n" path="res://scenes/levels/scenelet_friend_tom.tscn" id="25_q0wyh"]
+[ext_resource type="PackedScene" uid="uid://cjglxjae53yhy" path="res://scenes/props/cake_leftovers.tscn" id="27_bkg07"]
+[ext_resource type="PackedScene" uid="uid://f6wob3ikfa4n" path="res://scenes/props/cake_piece.tscn" id="28_6ojes"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
 streams_count = 2
@@ -101,7 +106,9 @@ collision_layer = 256
 collision_mask = 0
 script = ExtResource("12_38fne")
 timeline_file = ExtResource("14_j4wl8")
-participants = [NodePath("mickey"), NodePath("logan")]
+participants = [NodePath("mickey"), NodePath("../joaquim_scenelet/joaquim")]
+next_scenelet = ExtResource("16_urkdv")
+use_fade_to_black = true
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="mickey_scenelet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00585818, 0.992046, 0.0698662)
@@ -110,14 +117,6 @@ shape = SubResource("SphereShape3D_g68ri")
 [node name="mickey" parent="mickey_scenelet" instance=ExtResource("14_epqkh")]
 animation = "examining"
 
-[node name="logan" type="Node3D" parent="mickey_scenelet" node_paths=PackedStringArray("mouth")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086803, 0.815158, 3.44655)
-script = ExtResource("1_yw3mh")
-mouth = NodePath(".")
-character_file = ExtResource("17_p73nb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="mickey_scenelet/logan"]
-
 [node name="lilith_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2608, 2.46502, 10.8204)
 collision_layer = 256
@@ -125,6 +124,8 @@ collision_mask = 0
 script = ExtResource("12_38fne")
 timeline_file = ExtResource("16_bv8i7")
 participants = [NodePath("lilith")]
+next_scenelet = ExtResource("19_dgy1q")
+use_fade_to_black = true
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="lilith_scenelet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12305, 0)
@@ -140,6 +141,8 @@ collision_mask = 0
 script = ExtResource("12_38fne")
 timeline_file = ExtResource("18_ew152")
 participants = [NodePath("dave")]
+next_scenelet = ExtResource("22_0r1k5")
+use_fade_to_black = true
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="dave_scenelet"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.070055, 0.608802, -0.111551)
@@ -155,10 +158,46 @@ collision_mask = 0
 script = ExtResource("12_38fne")
 timeline_file = ExtResource("20_ayyyy")
 participants = [NodePath("tom")]
+next_scenelet = ExtResource("25_q0wyh")
+use_fade_to_black = true
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="tom_scenelet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791428, 0)
 shape = SubResource("SphereShape3D_3dixa")
 
 [node name="tom" parent="tom_scenelet" instance=ExtResource("17_86p6y")]
-animation = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00242901, 0, -0.10223)
+animation = "guitar"
+
+[node name="marker_3d" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 15.1179)
+
+[node name="cake_leftovers" parent="marker_3d" instance=ExtResource("27_bkg07")]
+transform = Transform3D(0.999331, 0, -0.0365739, 0, 1, 0, 0.0365739, 0, 0.999331, 0.290586, 0.568827, 0.463473)
+
+[node name="cake_piece" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(0.909592, 0, -0.415503, 0, 1, 0, 0.415503, 0, 0.909592, 0.689497, 0.549951, 0.599596)
+
+[node name="cake_piece2" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(-0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, -0.721772, -0.0223837, 0.549951, 0.687547)
+
+[node name="cake_piece3" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(-0.721772, 0, -0.692131, 0, 1, 0, 0.692131, 0, -0.721772, 0.32621, 0.549951, 1.13722)
+
+[node name="cake_piece" parent="marker_3d/cake_piece3" index="0"]
+visible = false
+
+[node name="cake_piece4" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(0.00900581, 0, 0.999959, 0, 1, 0, -0.999959, 0, 0.00900581, 0.378526, 0.549951, -0.135529)
+
+[node name="cake_piece5" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(-0.235668, 0, 0.971834, 0, 1, 0, -0.971834, 0, -0.235668, 0.0266285, 0.549951, 0.070384)
+
+[node name="cake_piece" parent="marker_3d/cake_piece5" index="0"]
+visible = false
+
+[node name="cake_piece6" parent="marker_3d" instance=ExtResource("28_6ojes")]
+transform = Transform3D(0.752335, 0, 0.658781, 0, 1, 0, -0.658781, 0, 0.752335, 0.725029, 0.549951, 0.0488729)
+
+[editable path="marker_3d/cake_piece3"]
+[editable path="marker_3d/cake_piece5"]

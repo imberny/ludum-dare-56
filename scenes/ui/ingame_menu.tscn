@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://ofg71hba2h7u"]
+
+[ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="1_dmqbr"]
+[ext_resource type="Script" path="res://scenes/ui/ingame_menu.gd" id="1_npbnj"]
+
+[sub_resource type="Gradient" id="Gradient_maust"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.243137)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ln3k"]
+gradient = SubResource("Gradient_maust")
+
+[node name="ingame_menu" type="Control"]
+process_mode = 3
+z_index = 165
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_npbnj")
+
+[node name="texture_rect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_5ln3k")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dmqbr")
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+
+[node name="control" type="Control" parent="center_container/v_box_container"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="resume" type="Button" parent="center_container/v_box_container"]
+layout_mode = 2
+text = "Resume"
+
+[node name="quit" type="Button" parent="center_container/v_box_container"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="center_container/v_box_container/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/quit" to="." method="_on_quit_pressed"]

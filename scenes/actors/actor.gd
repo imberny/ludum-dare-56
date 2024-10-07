@@ -14,7 +14,6 @@ func _ready() -> void:
 	self._play(self.animation)
 	if not Engine.is_editor_hint():
 		self.talk_loop()
-		Game.fading_out.connect(self._on_fading_out)
 		Game.actors[self.character_file.display_name] = self
 
 
@@ -43,6 +42,6 @@ func _play(anim: String) -> void:
 	self._anim_player.play(anim)
 
 
-func _on_fading_out() -> void:
+func fade_out() -> void:
 	for audio in self.looping_audio:
 		self.create_tween().tween_property(audio, "volume_db", -100.0, Game.FADE_TIME)

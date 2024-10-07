@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var jump_impulse := 4.5
 @export var acceleration := 5.0

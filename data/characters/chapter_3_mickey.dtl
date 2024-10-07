@@ -8,6 +8,12 @@ if {talked_mickey} == 0:
 	mickey: Really? Cool, Lil' Lo!
 	mickey: Hey what's all those boxes for?
 	joaquim: ...
+elif {Game.talked_logan} > 2:
+	mickey: This rocket kinda sucks though.
+	- I think Logan wants to show off that old game.
+		mickey: Oh is that what he's doing? He should have told me!
+		mickey: Sorry Logan, coming!
+		[signal arg="finished"]
 else:
 	mickey: Lil' Lo's so cool! You guys never let me play with your stuff.
 	mickey: All I get is my older brother's clothes, and he's the smaller one!

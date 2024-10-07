@@ -13,6 +13,13 @@ if {talked_dave} == 0:
 		dave: We played it to death. I thought he'd be bored of it by now.
 		dave: He barely looked at his new Boxbox!
 	dave: I don't know what to do. So awkward.
+elif {Game.talked_logan} > 2:
+	- You're his oldest friend, you should talk to him. | [if {Game.friends} < 2]
+		dave: I'm not good at talking. Makes me feel weird.
+		dave: You do it. I'll follow.
+	- C'mon, we'll go sit with Logan. | [if {Game.friends} > 1]
+		dave: Ok, but you better come too.
+		[signal arg="finished"]
 else:
 	dave: I don't know what to do. They don't sound ready to stop shouting...
 	dave: Makes me feel like a little insect.

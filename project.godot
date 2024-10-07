@@ -43,6 +43,7 @@ directories/dtl_directory={
 "chapter_3_logan": "res://data/characters/chapter_3_logan.dtl",
 "chapter_3_mickey": "res://data/characters/chapter_3_mickey.dtl",
 "chapter_3_tom": "res://data/characters/chapter_3_tom.dtl",
+"friends": "res://data/characters/friends.dtl",
 "test": "res://data/characters/test.dtl"
 }
 layout/style_list=["res://data/dialogic_bubble_style.tres", "res://data/dialogic_default_bubbles.tres", "res://data/dialogic_vn.tres"]
@@ -72,10 +73,10 @@ variables={
 "has_cake": false,
 "talked_dave": -1,
 "talked_lilith": -1,
-"talked_logan": -1,
 "talked_mickey": -1,
 "talked_tom": -1
 }
+glossary/default_case_sensitive=true
 
 [display]
 

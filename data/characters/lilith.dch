@@ -6,14 +6,14 @@
 &"description": "The goodhearted bossy brat. Curious yet not observant.",
 &"offset": Vector2(0, 0),
 &"mirror": false,
-&"nicknames": ["Lil"],
 &"display_name": "Lilith",
 &"portraits": {},
+&"default_portrait": "",
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "",
+&"nicknames": ["Lil"],
 &"_translation_id": ""
 }

@@ -9,5 +9,10 @@ if {talked_tom} == 0:
 	tom: Just a crappy load of crap.
 elif {talked_tom} == 1:
 	tom: I'm not going til Logan's ok.
+elif {Game.talked_logan} > 2:
+	- There a sofa next to Logan, you know.
+		tom: You want this couch so bad?
+		tom: Fine. Take it. I'll go sit over there.
+		[signal arg="finished"]
 else:
 	tom: This couch is taken.

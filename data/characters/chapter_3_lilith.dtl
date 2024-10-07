@@ -12,5 +12,12 @@ if {talked_lilith} == 0:
 		lilith: Yeah... I guess I'll wait a little
 	- And leave Logan alone?
 		lilith: Well he doesn't look like he wants us here.
+elif {Game.talked_logan} > 2:
+	- I think you should go see Logan.
+		lilith: But-[pause=0.7] Yeah, I guess.
+		lilith: I don't know what to tell him
+		- You don't have to say anything.
+			lilith: If you say so.
+			[signal arg="finished"]
 else:
 	lilith: I'll wait a little and sneak out. You coming?

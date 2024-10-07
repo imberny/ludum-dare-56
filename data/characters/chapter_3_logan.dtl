@@ -1,16 +1,16 @@
 join joaquim center
-set {talked_logan} += 1
-if {talked_logan} == 0:
+set {Game.talked_logan} += 1
+if {Game.talked_logan} == 0:
 	- Hey
 		joaquim: Hey.
 		- So uh... you ok?
 			joaquim: I'm fine. I'll just play this a little.
-elif {talked_logan} == 1:
+elif {Game.talked_logan} == 1:
 	- Cool game?
 		joaquim: Pretty cool.
-elif {talked_logan} == 2:
+elif {Game.talked_logan} == 2:
 	- You wanna talk about it?
-		joaquim: No, it'll pass. 
+		joaquim: No, it'll pass.
 else:
 	- Want anything?
 		joaquim: I'm good, thanks.

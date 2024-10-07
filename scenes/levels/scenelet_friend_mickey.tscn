@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2ojjqutuytx"]
+
+[ext_resource type="Script" path="res://scenes/levels/friend.gd" id="1_2f3an"]
+[ext_resource type="PackedScene" uid="uid://ce3tbwh3wfxba" path="res://scenes/actors/mickey.tscn" id="1_40vm8"]
+
+[node name="friend_mickey" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08867, -0.0368671, 7.79359)
+script = ExtResource("1_2f3an")
+
+[node name="mickey" parent="." instance=ExtResource("1_40vm8")]
+transform = Transform3D(0.151502, 0, -0.988457, 0, 1, 0, 0.988457, 0, 0.151502, 1.00147, 0.0469561, -0.765256)
+animation = "friend"

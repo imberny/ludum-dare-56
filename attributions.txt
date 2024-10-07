@@ -1,6 +1,7 @@
 fonts:
     Schoolwork by Forkssrose https://www.dafont.com/schoolwork.font
     Comic Helvetic by Alexander Pravdin https://www.dafont.com/comic-helvetic.font?af=on&l[]=10&l[]=1&text=Happy+birthday+Joaquim
+    Hecho A Mano by Slu Design https://www.dafont.com/hecho-a-mano.font?text=Logan&l[]=10&l[]=1&back=theme
 
 models:
     "Low Poly Mesh Child Base" (https://skfb.ly/o7XZE) by justice2free is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
@@ -13,3 +14,7 @@ sfx:
     Angry knocking by Speedenza -- https://freesound.org/s/222991/ -- License: Attribution NonCommercial 4.0
     tableware_crash1.mp3 by Taira Komori -- https://freesound.org/s/212638/ -- License: Attribution 4.0
     basement room-tone 420 PM 220811_0491 by klankbeeld -- https://freesound.org/s/755324/ -- License: Attribution 4.0
+
+music:
+    short loops 01 02 2015 1a.mp3 by B_Lamerichs -- https://freesound.org/s/262836/ -- License: Attribution 3.0
+    Dope Video Game Boss Music by Seth_Makes_Sounds -- https://freesound.org/s/683457/ -- License: Creative Commons 0

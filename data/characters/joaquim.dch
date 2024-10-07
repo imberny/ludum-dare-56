@@ -8,12 +8,12 @@
 &"mirror": false,
 &"display_name": "Logan",
 &"portraits": {},
+&"default_portrait": "",
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
-&"_translation_id": "",
 &"nicknames": ["Lil' Lo"],
-&"default_portrait": ""
+&"_translation_id": ""
 }
