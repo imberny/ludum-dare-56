@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgox6adpxsmyb"]
+
+[ext_resource type="PackedScene" uid="uid://34hv3oxkhi1u" path="res://assets/models/props/guitar_pick.glb" id="1_cmlsn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwl0l"]
+shading_mode = 0
+albedo_color = Color(1, 0.195275, 0.202735, 1)
+
+[node name="guitar_pick" instance=ExtResource("1_cmlsn")]
+
+[node name="pick" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xwl0l")

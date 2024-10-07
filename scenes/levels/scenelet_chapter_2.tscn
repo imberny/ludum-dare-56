@@ -24,10 +24,10 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_85lvf"]
 radius = 1.33716
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
-streams_count = 2
-stream_0/stream = ExtResource("10_nkxw2")
-stream_1/stream = ExtResource("11_72swx")
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_6otjl"]
+stream_count = 2
+stream_0 = ExtResource("11_72swx")
+stream_1 = ExtResource("10_nkxw2")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pbjjm"]
 streams_count = 5
@@ -141,7 +141,7 @@ looping_audio = [NodePath("arguing"), NodePath("misc_clash_sounds")]
 
 [node name="arguing" type="AudioStreamPlayer3D" parent="parents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78147, 0, 0)
-stream = SubResource("AudioStreamRandomizer_7ilgw")
+stream = SubResource("AudioStreamPlaylist_6otjl")
 volume_db = -3.179
 unit_size = 15.95
 max_db = 1.808

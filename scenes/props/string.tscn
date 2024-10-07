@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg0tqt3o3olox"]
+
+[ext_resource type="Script" path="res://scenes/props/string.gd" id="1_g8uqy"]
+[ext_resource type="AudioStream" uid="uid://dtou0fflbnh7g" path="res://assets/sfx/guitar/8402__speedy__clean_g_str_pick.wav" id="2_knj2p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_momep"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.933594, 0.933594, 0.933594, 1)
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_p2fgu"]
+
+[node name="string" type="MeshInstance3D" node_paths=PackedStringArray("start", "end", "sound")]
+material_override = SubResource("StandardMaterial3D_momep")
+mesh = SubResource("ImmediateMesh_p2fgu")
+script = ExtResource("1_g8uqy")
+start = NodePath("start")
+end = NodePath("end")
+width = 0.003
+resolution = 80
+frequency = 200.0
+sound = NodePath("sound")
+finger_position = 0
+pos_to_pitch = Array[float]([1.0, 1.059, 1.122, 1.189, 1.26, 1.335, 1.414, 1.498, 1.588, 1.682, 1.782, 1.888, 2.0])
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_knj2p")
+volume_db = -36.026
+bus = &"sfx"
+
+[node name="start" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.408334, 0)
+
+[node name="end" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0927678, 0)

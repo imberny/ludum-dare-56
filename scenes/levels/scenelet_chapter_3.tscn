@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://3gf5odwhm0lb"]
+[gd_scene load_steps=37 format=3 uid="uid://3gf5odwhm0lb"]
 
 [ext_resource type="Script" path="res://scenes/levels/scenelet_chapter_3.gd" id="1_ckhlb"]
 [ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_yw3mh"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://3o0x6y5dby83" path="res://scenes/levels/scenelet_friend_dave.tscn" id="22_0r1k5"]
 [ext_resource type="PackedScene" uid="uid://bwglyn1pxvf2n" path="res://scenes/levels/scenelet_friend_tom.tscn" id="25_q0wyh"]
 [ext_resource type="PackedScene" uid="uid://cjglxjae53yhy" path="res://scenes/props/cake_leftovers.tscn" id="27_bkg07"]
+[ext_resource type="PackedScene" uid="uid://b0oqp2yea7ldq" path="res://scenes/props/guitar_tom.tscn" id="27_ecvrt"]
 [ext_resource type="PackedScene" uid="uid://f6wob3ikfa4n" path="res://scenes/props/cake_piece.tscn" id="28_6ojes"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
@@ -168,6 +169,9 @@ shape = SubResource("SphereShape3D_3dixa")
 [node name="tom" parent="tom_scenelet" instance=ExtResource("17_86p6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00242901, 0, -0.10223)
 animation = "guitar"
+
+[node name="guitar_tom" parent="tom_scenelet" instance=ExtResource("27_ecvrt")]
+transform = Transform3D(0.619074, 0.784371, 0.0388498, -0.767934, 0.594263, 0.239018, 0.164392, -0.177804, 0.970237, -0.00223255, 0.63556, 0.0939846)
 
 [node name="marker_3d" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 15.1179)

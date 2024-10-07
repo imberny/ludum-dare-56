@@ -8,12 +8,12 @@
 &"mirror": false,
 &"display_name": "Parents",
 &"portraits": {},
-&"default_portrait": "",
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
-&"nicknames": [""],
-&"_translation_id": ""
+&"_translation_id": "",
+&"default_portrait": "",
+&"nicknames": [""]
 }

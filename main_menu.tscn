@@ -61,6 +61,42 @@ blend_shape_mode = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvp7f"]
 size = Vector3(2.50525, 3.50085, 2.87384)
 
+[sub_resource type="Animation" id="Animation_okykr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("joaquim2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("joaquim2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("joaquim2:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_fmglq"]
 resource_name = "zoom"
 length = 30.0
@@ -106,49 +142,13 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 15.0331, 29.9667)
 }
 
-[sub_resource type="Animation" id="Animation_okykr"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("joaquim2:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("joaquim2:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("joaquim2:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1xidn"]
 _data = {
 &"RESET": SubResource("Animation_okykr"),
 &"zoom": SubResource("Animation_fmglq")
 }
 
-[node name="main_menu" type="Control"]
+[node name="main_menu" type="Control" node_paths=PackedStringArray("audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,6 +157,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l0tbk")
 game_scene = ExtResource("2_f8h6q")
+audio = NodePath("audio_stream_player")
+
+[node name="margin_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -61.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 85
+theme_override_constants/margin_bottom = 65
+
+[node name="by_berny" type="Label" parent="margin_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8c1g4")
+theme_override_font_sizes/font_size = 64
+text = "By Berny"
+horizontal_alignment = 2
 
 [node name="center_container" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -174,10 +196,10 @@ theme_override_constants/separation = 12
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="label" type="Label" parent="center_container/v_box_container"]
+[node name="title" type="Label" parent="center_container/v_box_container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_8c1g4")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 128
 text = "Happy Birthday Logan"
 horizontal_alignment = 1
 

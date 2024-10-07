@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="tiny-creatures"
+config/name="Happy Birthday Logan"
+config/description="Ludum Dar 56 submission. Theme: Tiny Creatures"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -81,6 +82,8 @@ glossary/default_case_sensitive=true
 [display]
 
 mouse_cursor/custom_image="res://assets/textures/hand-point-up-solid.png"
+window/description=""
+window/name="tiny-creatures"
 
 [editor]
 
