@@ -1,0 +1,16 @@
+join lilith center
+set {talked_lilith} += 1
+if {talked_lilith} == 0:
+	lilith: I can't tell what they're so mad about.
+	lilith: Do you think Logan did something bad?
+	- Our Logan? You really think that?
+		lilith: They were saying his name...
+	- It's not his fault. Grown ups suck.
+		lilith: I thought his were cool.
+	lilith: Do you think we should leave?
+	- You'd have to go through his parents.
+		lilith: Yeah... I guess I'll wait a little
+	- And leave Logan alone?
+		lilith: Well he doesn't look like he wants us here.
+else:
+	lilith: I'll wait a little and sneak out. You coming?

@@ -1,0 +1,13 @@
+join mickey center
+join joaquim center
+set {talked_mickey} += 1
+if {talked_mickey} == 0:
+	mickey: Man, I love coming to your house and look at all your stuff!
+	mickey: What's this hero dude guy called? Spronk man? I bet Tom would know...
+	joaquim: You can have it if you want.
+	mickey: Really? Cool, Lil' Lo!
+	mickey: Hey what's all those boxes for?
+	joaquim: ...
+else:
+	mickey: Lil' Lo's so cool! You guys never let me play with your stuff.
+	mickey: All I get is my older brother's clothes, and he's the smaller one!

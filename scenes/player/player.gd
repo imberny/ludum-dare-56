@@ -33,6 +33,7 @@ var _is_crouched := false
 
 
 func _ready() -> void:
+	self._is_player_controlling = false
 	Game.state_changed.connect(self._on_game_state_changed)
 
 
@@ -51,6 +52,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if not self._is_player_controlling:
 		return
+	# in case browser escaped our cursor
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if self.is_on_floor() and event.is_action_pressed("jump"):
 		self._vertical_velocity = self.jump_impulse * Vector3.UP

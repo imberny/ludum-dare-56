@@ -12,6 +12,7 @@ func _ready() -> void:
 	self.turn_off()
 	await self.get_tree().process_frame
 	self.viewport_material.albedo_texture = viewport.get_texture()
+	Game.turn_tv_on.connect(self.turn_on)
 
 
 func turn_on() -> void:
@@ -27,11 +28,3 @@ func turn_off() -> void:
 	$sound.stop()
 	$tv.set_surface_override_material(1, off_material)
 	$omni_light_3d.visible = false
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump"):
-		if self._is_on:
-			self.turn_off()
-		else:
-			self.turn_on()

@@ -38,6 +38,11 @@ directories/dch_directory={
 directories/dtl_directory={
 "chapter1_happy_birthday": "res://data/characters/chapter1_happy_birthday.dtl",
 "chapter2_argument_starts": "res://data/characters/chapter2_argument_starts.dtl",
+"chapter_3_dave": "res://data/characters/chapter_3_dave.dtl",
+"chapter_3_lilith": "res://data/characters/chapter_3_lilith.dtl",
+"chapter_3_logan": "res://data/characters/chapter_3_logan.dtl",
+"chapter_3_mickey": "res://data/characters/chapter_3_mickey.dtl",
+"chapter_3_tom": "res://data/characters/chapter_3_tom.dtl",
 "test": "res://data/characters/test.dtl"
 }
 layout/style_list=["res://data/dialogic_bubble_style.tres", "res://data/dialogic_default_bubbles.tres", "res://data/dialogic_vn.tres"]
@@ -63,7 +68,13 @@ choices/reveal_by_input=false
 choices/hotkey_behaviour=0
 text/autopauses={}
 variables={
-"has_cake": false
+"dave_talked_to_logan": false,
+"has_cake": false,
+"talked_dave": -1,
+"talked_lilith": -1,
+"talked_logan": -1,
+"talked_mickey": -1,
+"talked_tom": -1
 }
 
 [display]

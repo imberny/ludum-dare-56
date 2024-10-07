@@ -1,0 +1,13 @@
+join tom center
+set {talked_tom} += 1
+if {talked_tom} == 0:
+	tom: I hope they divorce soon.
+	- How can you say that?
+		tom: You've heard them. You think there's gonna be a happily ever after?
+	- And how would Logan feel?
+		tom: Exactly. He feels like crap now. They're prolonging that feeling by not divorcing.
+	tom: Just a crappy load of crap.
+elif {talked_tom} == 1:
+	tom: I'm not going til Logan's ok.
+else:
+	tom: This couch is taken.

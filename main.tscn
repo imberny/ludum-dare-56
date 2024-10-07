@@ -1,56 +1,29 @@
-[gd_scene load_steps=30 format=3 uid="uid://bsgw214l8i5kg"]
+[gd_scene load_steps=15 format=3 uid="uid://bsgw214l8i5kg"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_3rg7b"]
-[ext_resource type="Resource" path="res://data/characters/chapter1_happy_birthday.dtl" id="2_hfj0i"]
 [ext_resource type="PackedScene" uid="uid://bbu8j4sjdr8cc" path="res://scenes/levels/basement.tscn" id="2_mapes"]
 [ext_resource type="Theme" uid="uid://d3dpxc0131y0n" path="res://data/ui_theme.tres" id="2_xrdut"]
-[ext_resource type="PackedScene" uid="uid://bja3q26jutghx" path="res://scenes/actors/lilith.tscn" id="4_cnuh1"]
-[ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="4_qfjhb"]
-[ext_resource type="PackedScene" uid="uid://d14liay6aujk5" path="res://scenes/levels/scenelet_chapter_2.tscn" id="5_2qrxd"]
-[ext_resource type="PackedScene" uid="uid://gpq5v5lkhhob" path="res://scenes/actors/tom.tscn" id="5_wbyti"]
-[ext_resource type="Resource" path="res://data/characters/test.dtl" id="5_woklq"]
-[ext_resource type="PackedScene" uid="uid://txpi01erx1mq" path="res://scenes/actors/dave.tscn" id="6_bvtjr"]
-[ext_resource type="Script" path="res://scenes/physics_prop.gd" id="8_qs3g0"]
-[ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="9_1rdcu"]
-[ext_resource type="PackedScene" uid="uid://ce3tbwh3wfxba" path="res://scenes/actors/mickey.tscn" id="9_px4l2"]
+[ext_resource type="PackedScene" uid="uid://3gf5odwhm0lb" path="res://scenes/levels/scenelet_chapter_3.tscn" id="9_vunhq"]
 [ext_resource type="PackedScene" uid="uid://ca257y0ga2whr" path="res://scenes/retro_game_tv.tscn" id="10_yxiqj"]
 [ext_resource type="AudioStream" uid="uid://behwaqadkh504" path="res://assets/music/683457__seth_makes_sounds__dope-video-game-boss-music.wav" id="11_vim10"]
 [ext_resource type="Script" path="res://assets/models/props/tv.gd" id="12_8ftgm"]
 [ext_resource type="PackedScene" uid="uid://bxmgiekbat0a6" path="res://assets/models/props/tv.glb" id="12_yp4lc"]
 [ext_resource type="AudioStream" uid="uid://dccpllki87rju" path="res://assets/sfx/ambient-755324__klankbeeld__basement-room-tone-420-pm-220811_0491.wav" id="27_ob5y4"]
-[ext_resource type="PackedScene" uid="uid://b1ak03fnbwd4g" path="res://assets/models/props/cake.glb" id="28_8nsf6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2q7ol"]
 radius = 0.225
 height = 1.25223
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_85lvf"]
-radius = 1.33716
 
 [sub_resource type="Environment" id="Environment_yvrrh"]
 background_mode = 1
 background_color = Color(0.440801, 0.745696, 0.863281, 1)
 ambient_light_color = Color(0.219998, 0.798684, 0.804688, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gubmw"]
-radius = 0.213706
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c84g4"]
-albedo_color = Color(1, 0.272095, 0.422473, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_qcdww"]
-material = SubResource("StandardMaterial3D_c84g4")
-radius = 0.1
-height = 0.2
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_8d451"]
-radius = 0.1
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_318m4"]
 shading_mode = 0
 albedo_color = Color(0.09375, 0.09375, 0.09375, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbwy0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvmou"]
 resource_local_to_scene = true
 shading_mode = 0
 
@@ -121,98 +94,6 @@ text = "Pick up?"
 [node name="crouched_pos" type="Marker3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451616, 0)
 
-[node name="scenelet_chapter1" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92831, 0.522123, 15.1179)
-collision_layer = 256
-collision_mask = 0
-script = ExtResource("4_qfjhb")
-timeline_file = ExtResource("2_hfj0i")
-participants = [NodePath("joaquim"), NodePath("lilith"), NodePath("tom"), NodePath("dave"), NodePath("mickey")]
-next_scenelet = ExtResource("5_2qrxd")
-autoplay = true
-is_oneshot = true
-switch_on_finished = true
-use_fade_to_black = true
-
-[node name="collision_shape_3d" type="CollisionShape3D" parent="scenelet_chapter1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470616, 0.332539)
-shape = SubResource("SphereShape3D_85lvf")
-
-[node name="joaquim" parent="scenelet_chapter1" instance=ExtResource("9_1rdcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366136, -0.192811, -0.611461)
-animation = "sitting"
-
-[node name="lilith" parent="scenelet_chapter1" instance=ExtResource("4_cnuh1")]
-transform = Transform3D(0.848122, 0, 0.529801, 0, 1, 0, -0.529801, 0, 0.848122, -0.419602, -0.245234, -0.31176)
-
-[node name="Skeleton3D" parent="scenelet_chapter1/lilith/rig" index="0"]
-bones/0/position = Vector3(-0.0156127, 0.507128, -0.0322274)
-bones/0/rotation = Quaternion(0.121324, 0.262833, -0.0333344, 0.956603)
-bones/1/rotation = Quaternion(-0.0666436, 0.00105029, 0.0162559, 0.997644)
-bones/2/rotation = Quaternion(-0.0767875, -0.143204, -0.0101228, 0.986658)
-bones/3/rotation = Quaternion(0.00157966, 0.100792, 0.00339229, 0.9949)
-bones/4/rotation = Quaternion(0.200473, -0.110096, 0.0194169, 0.9733)
-bones/5/rotation = Quaternion(-0.094835, 0.0217142, -0.00206832, 0.995254)
-bones/6/rotation = Quaternion(-0.113756, -0.0659775, 0.120446, 0.983971)
-bones/8/rotation = Quaternion(-0.228879, 0.462635, -0.753008, 0.408121)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(1.89172e-07, 0.0156909, -4.1527e-08, 0.999877)
-bones/10/rotation = Quaternion(0.616107, 0.0156918, -0.0122781, 0.78741)
-bones/11/rotation = Quaternion(2.49153e-07, 0.284176, 3.04818e-07, 0.958772)
-bones/12/rotation = Quaternion(0.133792, 0.284917, -0.107252, 0.94309)
-bones/13/rotation = Quaternion(-0.605155, 0.345862, 0.356134, 0.622363)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.195017, 0.637181, -0.603513, -0.437883)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(1.11066e-07, 0.0566517, 3.10051e-08, 0.998394)
-bones/16/rotation = Quaternion(0.591609, 0.0566518, -0.0417306, 0.803149)
-bones/17/rotation = Quaternion(-3.13525e-08, -0.269507, 3.85059e-07, 0.962998)
-bones/18/rotation = Quaternion(-0.00983466, -0.269772, 0.385514, 0.88233)
-bones/18/scale = Vector3(1, 1, 1)
-bones/19/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
-bones/19/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
-bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(0.565815, -0.0209656, 0.00230299, 0.824262)
-bones/21/scale = Vector3(1, 1, 0.999994)
-bones/22/rotation = Quaternion(2.56546e-07, -0.016821, 1.79265e-09, 0.999858)
-bones/23/rotation = Quaternion(0.909248, -0.0166945, 0.0366391, 0.414302)
-bones/24/rotation = Quaternion(-1.89809e-07, 0.167054, -3.11162e-09, 0.985948)
-bones/25/rotation = Quaternion(-0.349325, 0.166596, -0.158348, 0.908374)
-bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-2.09475e-05, 0.997646, -0.0685754, -0.000585144)
-bones/26/scale = Vector3(1, 1, 1)
-bones/27/rotation = Quaternion(0.627764, 0.0915219, -0.0106974, 0.772931)
-bones/27/scale = Vector3(1, 1, 0.999994)
-bones/28/rotation = Quaternion(-1.51336e-07, 0.0432835, 4.21087e-09, 0.999063)
-bones/29/rotation = Quaternion(0.801899, 0.0434256, -0.058726, 0.592979)
-bones/30/rotation = Quaternion(8.78874e-08, -0.254581, 2.21347e-08, 0.967051)
-bones/31/rotation = Quaternion(-0.643953, -0.254187, 0.100639, 0.714552)
-bones/31/scale = Vector3(1, 1, 1)
-bones/32/rotation = Quaternion(3.34851e-05, 0.997656, -0.0684268, 0.00058426)
-bones/32/scale = Vector3(1, 1, 1)
-
-[node name="head" parent="scenelet_chapter1/lilith/rig/Skeleton3D" index="1"]
-transform = Transform3D(0.965317, -0.23745, 0.108543, 0.236351, 0.971394, 0.0230666, -0.110915, 0.00338772, 0.993824, 0.00288869, 1.01175, 0.0160127)
-
-[node name="mouth" parent="scenelet_chapter1/lilith/rig/Skeleton3D/head" index="0"]
-transform = Transform3D(1, -3.72529e-08, -2.98023e-08, 5.21541e-08, 1, -2.23517e-08, 0, -7.45058e-09, 1, 0.140365, -0.0192728, 0.156227)
-
-[node name="torso" parent="scenelet_chapter1/lilith/rig/Skeleton3D" index="2"]
-transform = Transform3D(0.859616, 0.127551, 0.494765, 6.70552e-08, 0.968339, -0.24964, -0.510941, 0.214594, 0.832399, -0.0156127, 0.507128, -0.0322274)
-
-[node name="tom" parent="scenelet_chapter1" instance=ExtResource("5_wbyti")]
-transform = Transform3D(0.508951, 0, 0.860795, 0, 1, 0, -0.860795, 0, 0.508951, -0.444957, -0.156663, 0.729715)
-
-[node name="dave" parent="scenelet_chapter1" instance=ExtResource("6_bvtjr")]
-transform = Transform3D(0.628968, 0, -0.777431, 0, 1, 0, 0.777431, 0, 0.628968, 0.989108, -0.124777, -0.249604)
-
-[node name="mickey" parent="scenelet_chapter1" instance=ExtResource("9_px4l2")]
-transform = Transform3D(0.0522314, 0, -0.998635, 0, 1, 0, 0.998635, 0, 0.0522314, 1.06748, -0.12628, 0.597816)
-
-[node name="cake" parent="scenelet_chapter1" instance=ExtResource("28_8nsf6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335004, 0.559299, 0.374475)
-
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yvrrh")
 
@@ -229,32 +110,6 @@ size = Vector3(0.412598, 0.638672, 0.422852)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48648, 0)
 radius = 0.274255
 
-[node name="scenelet_trigger" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62178, 0.438235, 6.99648)
-collision_layer = 256
-collision_mask = 0
-script = ExtResource("4_qfjhb")
-timeline_file = ExtResource("5_woklq")
-participants = [NodePath("joaquim")]
-
-[node name="collision_shape_3d" type="CollisionShape3D" parent="scenelet_trigger"]
-shape = SubResource("SphereShape3D_gubmw")
-
-[node name="joaquim" parent="scenelet_trigger" instance=ExtResource("9_1rdcu")]
-transform = Transform3D(-0.43997, 0, -0.898013, 0, 1, 0, 0.898013, 0, -0.43997, 0.12562, -0.438235, 0.0118299)
-
-[node name="rigid_body_3d" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.82006)
-collision_layer = 2
-collision_mask = 5
-script = ExtResource("8_qs3g0")
-
-[node name="mesh_instance_3d" type="MeshInstance3D" parent="rigid_body_3d"]
-mesh = SubResource("SphereMesh_qcdww")
-
-[node name="collision_shape_3d" type="CollisionShape3D" parent="rigid_body_3d"]
-shape = SubResource("SphereShape3D_8d451")
-
 [node name="tv_viewport" type="SubViewport" parent="."]
 size = Vector2i(320, 240)
 
@@ -266,7 +121,7 @@ offset_bottom = 0.0
 transform = Transform3D(0.293114, 0, -0.133191, 0, 0.321955, 0, 0.133191, 0, 0.293114, 1.4702, 1.19209e-07, 6.53634)
 script = ExtResource("12_8ftgm")
 off_material = SubResource("StandardMaterial3D_318m4")
-viewport_material = SubResource("StandardMaterial3D_hbwy0")
+viewport_material = SubResource("StandardMaterial3D_tvmou")
 viewport = NodePath("../tv_viewport")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="tv"]
@@ -296,5 +151,6 @@ stream = ExtResource("27_ob5y4")
 volume_db = -3.737
 autoplay = true
 
-[editable path="scenelet_chapter1/lilith"]
+[node name="scenelet_chapter3" parent="." instance=ExtResource("9_vunhq")]
+
 [editable path="tv"]

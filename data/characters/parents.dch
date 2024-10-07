@@ -1,19 +1,19 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
+&"portraits": {},
 &"color": Color(1, 1, 1, 1),
 &"scale": 1.0,
 &"description": "",
 &"offset": Vector2(0, 0),
 &"mirror": false,
 &"display_name": "parents",
-&"portraits": {},
-&"_translation_id": "",
+&"default_portrait": "",
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
-&"nicknames": [""],
-&"default_portrait": ""
+&"_translation_id": "",
+&"nicknames": [""]
 }

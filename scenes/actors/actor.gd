@@ -15,6 +15,12 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		self.talk_loop()
 		Game.fading_out.connect(self._on_fading_out)
+		Game.actors[self.character_file.display_name] = self
+
+
+func _exit_tree() -> void:
+	if Engine.is_editor_hint():
+		return
 
 
 func talk_loop() -> void:

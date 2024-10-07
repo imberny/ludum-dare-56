@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://3gf5odwhm0lb"]
+[gd_scene load_steps=31 format=3 uid="uid://3gf5odwhm0lb"]
 
+[ext_resource type="Script" path="res://scenes/levels/scenelet_chapter_3.gd" id="1_ckhlb"]
 [ext_resource type="Script" path="res://scenes/actors/actor.gd" id="1_yw3mh"]
 [ext_resource type="Resource" path="res://data/characters/parents.dch" id="2_vnyqu"]
 [ext_resource type="AudioStream" uid="uid://bqdn7k0tdmnfq" path="res://assets/sfx/parents-arguing-man-lookatme.wav" id="3_4h6qr"]
@@ -10,6 +11,18 @@
 [ext_resource type="AudioStream" uid="uid://bb4sii8qmsp8e" path="res://assets/sfx/327668__juan_merie_venter__breaking-plates_1.wav" id="8_qvsuv"]
 [ext_resource type="AudioStream" uid="uid://ds46nmeh1o5jt" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_1.wav" id="9_s0v60"]
 [ext_resource type="AudioStream" uid="uid://cdaiatvtyixsy" path="res://assets/sfx/462664__hisoul__angry-door-wooden-entrance-open-close-slam-hard-b_2.wav" id="10_605vq"]
+[ext_resource type="Script" path="res://scenes/scenelet_trigger.gd" id="12_38fne"]
+[ext_resource type="PackedScene" uid="uid://q8dnube0t51j" path="res://scenes/actors/joaquim.tscn" id="13_ha45x"]
+[ext_resource type="Resource" path="res://data/characters/chapter_3_logan.dtl" id="13_xiky3"]
+[ext_resource type="PackedScene" uid="uid://ce3tbwh3wfxba" path="res://scenes/actors/mickey.tscn" id="14_epqkh"]
+[ext_resource type="Resource" path="res://data/characters/chapter_3_mickey.dtl" id="14_j4wl8"]
+[ext_resource type="PackedScene" uid="uid://bja3q26jutghx" path="res://scenes/actors/lilith.tscn" id="15_4ym0q"]
+[ext_resource type="PackedScene" uid="uid://txpi01erx1mq" path="res://scenes/actors/dave.tscn" id="16_2kdqb"]
+[ext_resource type="Resource" path="res://data/characters/chapter_3_lilith.dtl" id="16_bv8i7"]
+[ext_resource type="PackedScene" uid="uid://gpq5v5lkhhob" path="res://scenes/actors/tom.tscn" id="17_86p6y"]
+[ext_resource type="Resource" path="res://data/characters/joaquim.dch" id="17_p73nb"]
+[ext_resource type="Resource" path="res://data/characters/chapter_3_dave.dtl" id="18_ew152"]
+[ext_resource type="Resource" path="res://data/characters/chapter_3_tom.dtl" id="20_ayyyy"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ilgw"]
 streams_count = 2
@@ -24,7 +37,20 @@ stream_2/stream = ExtResource("8_qvsuv")
 stream_3/stream = ExtResource("9_s0v60")
 stream_4/stream = ExtResource("10_605vq")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_e5wq8"]
+radius = 0.262104
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g68ri"]
+radius = 0.283997
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_naec7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3flss"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3dixa"]
+
 [node name="scenelet_chapter3" type="Node3D"]
+script = ExtResource("1_ckhlb")
 
 [node name="parents" type="Node3D" parent="." node_paths=PackedStringArray("mouth", "looping_audio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3357, 3.00404, -3.0445)
@@ -54,3 +80,85 @@ bus = &"sfx"
 script = ExtResource("5_5kqp2")
 interval = 3.0
 interval_randomness = 10.0
+
+[node name="joaquim_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(-0.388384, 0, -0.921497, 0, 1, 0, 0.921497, 0, -0.388384, 2.70032, 0, 7.08262)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("13_xiky3")
+participants = [NodePath("joaquim")]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="joaquim_scenelet"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.436, 0.15)
+shape = SubResource("SphereShape3D_e5wq8")
+
+[node name="joaquim" parent="joaquim_scenelet" instance=ExtResource("13_ha45x")]
+
+[node name="mickey_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(-0.996503, 0, -0.0835561, 0, 1, 0, 0.0835561, 0, -0.996503, 3.09551, 1.19209e-07, 11.7125)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("14_j4wl8")
+participants = [NodePath("mickey"), NodePath("logan")]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="mickey_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00585818, 0.992046, 0.0698662)
+shape = SubResource("SphereShape3D_g68ri")
+
+[node name="mickey" parent="mickey_scenelet" instance=ExtResource("14_epqkh")]
+animation = "examining"
+
+[node name="logan" type="Node3D" parent="mickey_scenelet" node_paths=PackedStringArray("mouth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086803, 0.815158, 3.44655)
+script = ExtResource("1_yw3mh")
+mouth = NodePath(".")
+character_file = ExtResource("17_p73nb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mickey_scenelet/logan"]
+
+[node name="lilith_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2608, 2.46502, 10.8204)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("16_bv8i7")
+participants = [NodePath("lilith")]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="lilith_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12305, 0)
+shape = SubResource("SphereShape3D_naec7")
+
+[node name="lilith" parent="lilith_scenelet" instance=ExtResource("15_4ym0q")]
+animation = "listening"
+
+[node name="dave_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(-0.846853, 0, -0.531827, 0, 1, 0, 0.531827, 0, -0.846853, 10.1148, 0.0379647, 14.8765)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("18_ew152")
+participants = [NodePath("dave")]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="dave_scenelet"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.070055, 0.608802, -0.111551)
+shape = SubResource("SphereShape3D_3flss")
+
+[node name="dave" parent="dave_scenelet" instance=ExtResource("16_2kdqb")]
+animation = "laying on couch"
+
+[node name="tom_scenelet" type="Area3D" parent="." node_paths=PackedStringArray("participants")]
+transform = Transform3D(-0.999718, 0, -0.0237517, 0, 1, 0, 0.0237517, 0, -0.999718, 8.20487, 0, 17.0162)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("12_38fne")
+timeline_file = ExtResource("20_ayyyy")
+participants = [NodePath("tom")]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="tom_scenelet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791428, 0)
+shape = SubResource("SphereShape3D_3dixa")
+
+[node name="tom" parent="tom_scenelet" instance=ExtResource("17_86p6y")]
+animation = ""

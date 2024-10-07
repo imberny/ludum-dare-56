@@ -10,12 +10,12 @@ parents: *CRASH*[pause=1.0][aa]
 - Should we go see?
 - [Eat cake] *Om nom nom*
 	set {has_cake} = false
-	do Game.eat_cake()
+	[signal arg="eat cake"]
 dave: Are your parents ok, Lil' Lo?
 [wait time="1.0"]
 tom: They sound ok to you?
 mickey: Hey, Logan. You ok little buddy?
-do Game.logan_leave_table()
+[signal arg="play Logan leave"]
 [wait time="3.0"]
 lilith: What's with him?
 tom: Really, Lilith? You haven't noticed before?
@@ -29,8 +29,8 @@ label fighting again
 	set {has_cake} = true
 	jump fighting again
 - [Eat cake] *Om nom nom* | [if {has_cake} == true]
+	[signal arg="eat cake"]
 	set {has_cake} = false
-	do Game.eat_cake()
 dave: I heard them last week.
 tom: And I the week before that.
 dave: Yeah, it’s not looking good.
@@ -39,4 +39,7 @@ tom: Maybe he doesn’t want to talk to you about it.
 lilith: What’s that mean?!
 - Ok, chill guys, I’ll go see him. Fixing stuff is my specialty.
 - Dave, you go see him.
-	- Mickey, give me his cake. | [if {has_cake} == false]
+	set {dave_talked_to_logan} = true
+	if {has_cake} == false:
+		- Mickey, give me his cake.
+			[signal arg="get dave's cake"]
